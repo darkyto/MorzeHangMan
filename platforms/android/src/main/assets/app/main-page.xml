@@ -1,9 +1,7 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="container">
   <StackLayout class="stackContainer" tap="navToMenu" >
-
   	<Image src="~/res/logo_morse.png" id="logoImage" class="splashImage" stretch="aspectFit"/>
   	<Label text="Hangman" id="headingLabel" class="headingLabel" textWrap="true" /> 	
   	<Button text="{{ flashlightState }}" tap="{{ toggleFlashlight }}" />
-
   </StackLayout>
 </Page>

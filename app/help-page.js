@@ -20,6 +20,7 @@ var pageModules = (function() {
 		    segmentedBar = viewModule.getViewById(page, "segmentedBar");
 		    testLabel = viewModule.getViewById(page, "testLabel");
 
+		    segmentedBar.selectedIndex = 0;
 
 			segmentedBar.on(observableModule.Observable.propertyChangeEvent, function(propertyChangeData){
 			  	//console.log(propertyChangeData.propertyName + " has been changed and the new value is: " + propertyChangeData.value);
