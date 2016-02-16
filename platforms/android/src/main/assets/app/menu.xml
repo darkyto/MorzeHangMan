@@ -8,6 +8,6 @@
 	        </SegmentedBar.items>
 		</SegmentedBar>
 		
-		<Label text="default" id="testLabel" class="title" textWrap="true" />
+		<Label text="default" id="testLabel" class="headingLabel" textWrap="true" />
 	</StackLayout> 
 </Page>

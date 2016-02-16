@@ -1,6 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="container">
-  <StackLayout>
-    <Label text="Splash screen page" class="title"/>
-    <Button text="go to Menu" tap="navToMenu" />
+  <StackLayout class="stackContainer">
+  	<Image src="~/res/logo_morse.png" stretch ="aspectFit" tap="navToMenu" class="splashImage" />
+  	<Label text="Hangman" class="headingLabel" textWrap="true" /> 	
   </StackLayout>
 </Page>

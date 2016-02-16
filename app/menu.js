@@ -4,7 +4,6 @@ var observableModule = require("data/observable");
 var segmentedBarModule = require("ui/segmented-bar");
 var viewModule = require("ui/core/view");
 
-
 var pageModules = (function() {
 
 	var segmentedBar;
