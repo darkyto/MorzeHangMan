@@ -1,14 +1,17 @@
 ﻿
 .container {
-	background-color: #222;
-	color:#FFF;
+	background-color: #5F6B61;
+	color:#DCF0F7;
 }
+
 .stackContainer {
 	vertical-align: center;
 }
+
 .splashImage {
 	margin: 20;
 }
+
 .headingLabel {
 	font-family: sans-serif;
 	font-size: 44;
@@ -26,4 +29,9 @@ button {
     font-size: 20;
     color: #284848;
     horizontal-align: center;
+}
+
+segmentedBar{
+    background-color: #5E9DC8;
+    color: #0C2C52;
 }

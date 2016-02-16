@@ -2,12 +2,11 @@
 	<StackLayout>
 		<SegmentedBar selectedIndex="{{ selectedIndex }}" id="segmentedBar">
 	        <SegmentedBar.items>
-	        	<SegmentedBarItem title="First"  />
-	            <SegmentedBarItem title="Second" />
-	            <SegmentedBarItem title="Third"  />
+	        	<SegmentedBarItem title="help"  />
+	            <SegmentedBarItem title="morsify" />
+	            <SegmentedBarItem title="quiz"  />
 	        </SegmentedBar.items>
 		</SegmentedBar>
-		
 		<Label text="default" id="testLabel" class="headingLabel" textWrap="true" />
 	</StackLayout> 
 </Page>
