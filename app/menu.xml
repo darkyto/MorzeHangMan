@@ -1,0 +1,13 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" class="container">
+	<StackLayout>
+		<SegmentedBar selectedIndex="{{ selectedIndex }}">
+	        <SegmentedBar.items>
+	        	<SegmentedBarItem title="First"  />
+	            <SegmentedBarItem title="Second" />
+	            <SegmentedBarItem title="Third" />
+	        </SegmentedBar.items>
+		</SegmentedBar>
+		
+		<Label text="message" class="title" textWrap="true" />
+	</StackLayout> 
+</Page>
