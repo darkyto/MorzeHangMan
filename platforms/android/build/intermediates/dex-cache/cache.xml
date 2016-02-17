@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\libs\nativescript.jar"
+        jar="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\libs\nativescript.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="e49ee2301dce2f85edd44f634fd45ad92df9e00a">
-        <dex dex="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\debug\nativescript-4f0270380e611298553e6d0e9dd9562650bf87ef.jar" />
+        <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlight\debug\nativescript-721a668a1fc4e815dca74c9f0f14109d45178449.jar" />
     </item>
     <item
-        jar="C:\Users\Admin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-ccd81682849331a0d1ebde7d37dc512d0cd3805a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\libs\widgets.jar"
+        jar="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\libs\widgets.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="ff3c62a8eb22f0111b882125ad1579dc6273fd90">
-        <dex dex="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\debug\widgets-74ec2dcfa0dd83aa0ab815a5d8916c19af11e657.jar" />
+        <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlight\debug\widgets-c0d7007c58bbbc935826d7a20a50764c7693c49d.jar" />
+    </item>
+    <item
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlight\debug\support-annotations-22.2.1-6afb30d34d8ee0256038e37cf43078b75d29b358.jar" />
     </item>
 
 </items>

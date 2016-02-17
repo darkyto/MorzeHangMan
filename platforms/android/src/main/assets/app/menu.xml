@@ -26,11 +26,16 @@
             </TabViewItem>
             <TabViewItem title="Alphabet">
                 <TabViewItem.view>
-                    <StackLayout>
+                    <StackLayout >
                     	<Label text="This will be morse alphabet section..." id="morseAlphabetLabel" />
-                      	<ListView id="morseAlphabetListView" tap="onListViewTap">
-                      		<Label text="{{ $value }}" horizontalAlignment="right" />
-                      	</ListView>
+                        <ListView  id="morseAlphabetListView" tap="onListViewTap" items="{{ myMorseItems }}">
+                            <ListView.itemTemplate>
+                                <StackLayout orientation="horizontal" stretch="fill">
+                                   <Label text="{{ letter }}"  textWrap="true" class="morseLetterLabel" />
+                                   <Label text="{{ code }}"  textWrap="true" class="morseLetterLabel" />
+                                </StackLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>

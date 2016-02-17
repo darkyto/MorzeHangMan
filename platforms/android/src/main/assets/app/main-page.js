@@ -56,7 +56,7 @@ viewModel.toggleFlashlight = function() {
     } else {
         alert("A flashlight is not available on your device.");
     }
-}
+};
 
 exports.pageLoaded = pageLoaded;
 exports.navToMenu = navToMenu;
