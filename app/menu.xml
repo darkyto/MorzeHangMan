@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoad">
     <TabView selectedIndexChanged="indexChange">
         <TabView.items>
             <TabViewItem title="Morsify">
@@ -27,8 +27,8 @@
             <TabViewItem title="Alphabet">
                 <TabViewItem.view>
                     <StackLayout>
-                    	<Label text="This will be morse alphabet section..." id="quizLabel" />
-                       <ListPicker items="{{ myItems }}" selectedIndex=""></ListPicker>
+                    	<Label text="This will be morse alphabet section..." id="morseAlphabetLabel" />
+                      	<ListPicker items="{{ morseAlhabet }}" selectedIndex="" id="morseAlphabetListPicker"/>
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>

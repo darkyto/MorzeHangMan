@@ -1,4 +1,3 @@
-
 var frameModule = require("ui/frame");
 var observableModule = require("data/observable");
 var viewModule = require("ui/core/view");
@@ -10,10 +9,16 @@ var viewModel = new observableModule.Observable();
 
 var topmost;
 
+var morseAlhabet = ["A", "B", "C"];
+
 function pageLoaded(args) {
     var page = args.object;
 	page.bindingContext = viewModel;
     topmost = frameModule.topmost();
+
+    var model = new observableModule.Observable({
+        "morseAlhabet": ["A", "B", "C"],
+    });
 
     // this will animate the logo on initial load
     var img = viewModule.getViewById(page, "logoImage");
