@@ -5,6 +5,15 @@
                 <TabViewItem.view>
                     <StackLayout>
                         <Label text="This will be the text to morse code section..." id="morsifyLabel" />
+                        
+                        <StackLayout class="morsifyStack"> 
+                            <TextView hint="enter text to morsify" text="{{ Enter text to morsify }}" editable="true" class="morsifyTextView" />
+                            <TextView hint="enter morse to textify" text="{{ Enter morse to textify }}" editable="true" class="morsifyTextView" />
+                             
+                            <Button text="Create Light Morse Code" class="morsifyButton"/>
+                                
+                        </StackLayout>
+                        
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
