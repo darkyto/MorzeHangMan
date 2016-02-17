@@ -13,7 +13,6 @@ function onLoad(args) {
     var page = args.object;
     page.addCssFile("~/styles/menu.css");
 
-
     _dot = sound.create("~/res/morse-dot.wav");
     _slash = sound.create("~/res/morse-slash.wav");
 
@@ -80,17 +79,22 @@ function onListViewTap(args) {
 
 	for (var i = 0, len = codeString.length; i < len; i++) {
 	  	if (codeString[i] === "-") {
+
 	  		playMorseCode(_slash);
-	  		console.log("slash played");
-	  	} else {
+	  		console.log("Slash player");
+	  		
+	  	} else if (codeString[i] === ".") {
 	  		playMorseCode(_dot);
-	  		console.log("dot played");
+	  		console.log("Dot played");
 	  	}
 	}
 }
 
 function playMorseCode(soundName){
 	soundName.play();
+	console.log("sound started");
+	soundName.stop();
+	console.log("sound stopped");
 }
 
 exports.onLoad = onLoad;

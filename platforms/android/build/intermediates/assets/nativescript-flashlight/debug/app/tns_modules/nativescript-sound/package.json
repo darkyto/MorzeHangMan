@@ -1,0 +1,55 @@
+{
+  "name": "nativescript-sound",
+  "version": "1.0.4",
+  "description": "Play a sound in your NativeScript app",
+  "main": "sound.js",
+  "nativescript": {
+    "platforms": {
+      "ios": "1.3.0",
+      "android": "1.3.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbristowe/nativescript-sound.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "Sound",
+    "Audio"
+  ],
+  "author": {
+    "name": "John Bristowe",
+    "email": "john@bristowe.com",
+    "url": "https://github.com/jbristowe"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbristowe/nativescript-sound/issues"
+  },
+  "homepage": "https://github.com/jbristowe/nativescript-sound",
+  "gitHead": "6ee371ab7ef5acdec178cff18d2536e713db7161",
+  "_id": "nativescript-sound@1.0.4",
+  "scripts": {},
+  "_shasum": "e8ad0aacd8eb5fb4e352fb5ae9fdd2d60de399eb",
+  "_from": "nativescript-sound@latest",
+  "_npmVersion": "2.11.3",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "jbristowe",
+    "email": "john@bristowe.com"
+  },
+  "dist": {
+    "shasum": "e8ad0aacd8eb5fb4e352fb5ae9fdd2d60de399eb",
+    "tarball": "http://registry.npmjs.org/nativescript-sound/-/nativescript-sound-1.0.4.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "jbristowe",
+      "email": "john@bristowe.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/nativescript-sound/-/nativescript-sound-1.0.4.tgz",
+  "readme": "ERROR: No README data found!"
+}

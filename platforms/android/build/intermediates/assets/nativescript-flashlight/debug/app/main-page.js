@@ -1,4 +1,3 @@
-
 var frameModule = require("ui/frame");
 var observableModule = require("data/observable");
 var viewModule = require("ui/core/view");
@@ -10,10 +9,16 @@ var viewModel = new observableModule.Observable();
 
 var topmost;
 
+var morseAlhabet = ["A", "B", "C"];
+
 function pageLoaded(args) {
     var page = args.object;
 	page.bindingContext = viewModel;
     topmost = frameModule.topmost();
+
+    var model = new observableModule.Observable({
+        "morseAlhabet": ["A", "B", "C"],
+    });
 
     // this will animate the logo on initial load
     var img = viewModule.getViewById(page, "logoImage");
@@ -24,18 +29,6 @@ function pageLoaded(args) {
     	rotate: 360,
     	duration: 3000
     });
-
-    var heading = viewModule.getViewById(page, "headingLabel");
-    heading.scaleX = 0.1;
-    heading.scaleY = 0.1;
-    heading.rotate = 180;
-    heading.animate({
-    	scale: {x: 0.6, y: 0.6},
-    	duration: 3000
-    }).then(function () { return heading.animate({
-    	scale: {x: 1, y: 1}, 
-    	rotate: 0, 
-    	duration:400 }); });
 }
 
 
@@ -51,7 +44,7 @@ viewModel.toggleFlashlight = function() {
     } else {
         alert("A flashlight is not available on your device.");
     }
-}
+};
 
 exports.pageLoaded = pageLoaded;
 exports.navToMenu = navToMenu;
