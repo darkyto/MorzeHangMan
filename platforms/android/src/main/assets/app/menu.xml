@@ -1,5 +1,5 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoad">
-    <TabView selectedIndexChanged="indexChange">
+    <TabView selectedIndexChanged="indexChange" id="tabNavigation">
         <TabView.items>
             <TabViewItem title="Morsify">
                 <TabViewItem.view>
@@ -28,7 +28,9 @@
                 <TabViewItem.view>
                     <StackLayout>
                     	<Label text="This will be morse alphabet section..." id="morseAlphabetLabel" />
-                      	<ListPicker items="{{ morseAlhabet }}" selectedIndex="" id="morseAlphabetListPicker"/>
+                      	<ListView items="{{ morseAlhabet }}" id="morseAlphabetListView" >
+                      		<Label text="{{ $value }}" horizontalAlignment="right" />
+                      	</ListView>
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
