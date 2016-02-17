@@ -28,8 +28,8 @@
                 <TabViewItem.view>
                     <StackLayout >
                     	<Label text="This will be morse alphabet section..." id="morseAlphabetLabel" />
-                        <ListView  id="morseAlphabetListView" tap="onListViewTap" items="{{ myMorseItems }}">
-                            <ListView.itemTemplate>
+                        <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">
+                            <ListView.itemTemplate >
                                 <StackLayout orientation="horizontal" stretch="fill">
                                    <Label text="{{ letter }}"  textWrap="true" class="morseLetterLabel" />
                                    <Label text="{{ code }}"  textWrap="true" class="morseLetterLabel" />
