@@ -60,7 +60,7 @@ var _slash;
 function onLoad(args) {
     var page = args.object;
 
-    var _dot = sound.create("~/res/morse-dot.wav");
+    _dot = sound.create("~/res/morse-slash.wav");
 
     var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
     var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
