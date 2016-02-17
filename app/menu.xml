@@ -28,7 +28,7 @@
                 <TabViewItem.view>
                     <StackLayout>
                     	<Label text="This will be morse alphabet section..." id="morseAlphabetLabel" />
-                      	<ListView items="{{ morseAlhabet }}" id="morseAlphabetListView" >
+                      	<ListView id="morseAlphabetListView" tap="onListViewTap">
                       		<Label text="{{ $value }}" horizontalAlignment="right" />
                       	</ListView>
                     </StackLayout>

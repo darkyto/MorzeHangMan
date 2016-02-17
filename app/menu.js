@@ -53,17 +53,29 @@
 console.log("in menu.js");
 
 var view = require("ui/core/view");
+var sound = require("nativescript-sound");
+var _dot;
+var _slash;
 
 function onLoad(args) {
     var page = args.object;
 
-    console.log("in menu.js @ onLoad");
+    var _dot = sound.create("~/res/morse-dot.wav");
 
     var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
     var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
 
-    //_morseAlphabetLabel.text = "OK!";
     _morseAlphabetListView.items = ["A	.-   ", "B	-... ", "C	-.-. ", "D	-..  ", "E	.    ", "F	..-. ", "G	--.  ", "H	.... ", "I	..   ", "J	.--- ", "K	-.-  ", "L	.-.. ", "M	--   ", "N	-.   ", "O	---  ", "P	.--. ", "Q	--.- ", "R	.-.  ", "S	...  ", "T	-    ", "U	..-  ", "V	...- ", "W	.--  ", "X	-..- ", "Y	-.-- ", "Z	--.. ", "0	-----", "1	.----", "2	..---", "3	...--", "4	....-", "5	.....", "6	-....", "7	--...", "8	---..", "9	----."];
 }
 
+function onListViewTap() {
+	console.log("List view tapped!");
+    var _playMorseCode = playMorseCode("A");
+}
+
+function playMorseCode(args){
+	_dot.play();
+};
+
 exports.onLoad = onLoad;
+exports.onListViewTap = onListViewTap;
