@@ -29,18 +29,6 @@ function pageLoaded(args) {
     	rotate: 360,
     	duration: 3000
     });
-
-    var heading = viewModule.getViewById(page, "headingLabel");
-    heading.scaleX = 0.1;
-    heading.scaleY = 0.1;
-    heading.rotate = 180;
-    heading.animate({
-    	scale: {x: 0.6, y: 0.6},
-    	duration: 3000
-    }).then(function () { return heading.animate({
-    	scale: {x: 1, y: 1}, 
-    	rotate: 0, 
-    	duration:400 }); });
 }
 
 

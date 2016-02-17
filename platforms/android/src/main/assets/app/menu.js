@@ -11,6 +11,8 @@ var _morseCodeArray;
 
 function onLoad(args) {
     var page = args.object;
+    page.addCssFile("~/styles/menu.css");
+
 
     _dot = sound.create("~/res/morse-dot.wav");
     _slash = sound.create("~/res/morse-slash.wav");
@@ -86,7 +88,6 @@ function onListViewTap(args) {
 	  	}
 	}
 }
-
 
 function playMorseCode(soundName){
 	soundName.play();
