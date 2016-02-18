@@ -1,7 +1,11 @@
+/* jshint node: true */
+/*jshint sub:true*/
+"use strict";
+
 var frameModule = require("ui/frame");
 var observableModule = require("data/observable");
 var viewModule = require("ui/core/view");
-var colorModule = require("color");
+//var colorModule = require("color");
 
 // testing purposes
 var flashlight = require("nativescript-flashlight"); 
@@ -9,16 +13,16 @@ var viewModel = new observableModule.Observable();
 
 var topmost;
 
-var morseAlhabet = ["A", "B", "C"];
+//var morseAlhabet = ["A", "B", "C"];
 
 function pageLoaded(args) {
     var page = args.object;
 	page.bindingContext = viewModel;
     topmost = frameModule.topmost();
 
-    var model = new observableModule.Observable({
-        "morseAlhabet": ["A", "B", "C"],
-    });
+    // var model = new observableModule.Observable({
+    //     "morseAlhabet": ["A", "B", "C"],
+    // });
 
     // this will animate the logo on initial load
     var img = viewModule.getViewById(page, "logoImage");
@@ -42,7 +46,8 @@ viewModel.toggleFlashlight = function() {
         flashlight.toggle();
         viewModel.set("flashlightState", (flashlight.isOn() ? "Turn off" : "Turn on"));
     } else {
-        alert("A flashlight is not available on your device.");
+        console.log("A flashlight is not available on your device.");
+        //alert("A flashlight is not available on your device.");
     }
 };
 

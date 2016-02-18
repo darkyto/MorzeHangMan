@@ -1,4 +1,8 @@
-var view = require("ui/core/view");
+/* jshint node: true */
+/*jshint sub:true*/
+"use strict";
+
+//var view = require("ui/core/view");
 var sound = require("nativescript-sound");
 var observableModule = require("data/observable-array");
 var observableModel = require("data/observable");
@@ -30,8 +34,8 @@ function onLoad(args) {
 		"morseToText" : "... --- ..."
 	});
 
-	var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
-	var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
+	//var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
+	//var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
 
 	generateMorseObservableArray();
 
@@ -39,8 +43,8 @@ function onLoad(args) {
 	page.bindingContext = model;	
 }
 
-function onEncodeButtonTap(args) {
-	var page = args.object.page;
+function onEncodeButtonTap() {
+	//var page = args.object.page;
 	var textInput = model.get("textToMorse");
 	var resultOutput = decodeTextToMorse(textInput);
 	console.log(resultOutput);
@@ -57,26 +61,31 @@ function onListViewTap(args) {
 
 	for (var i = 0, len = codeString.length; i < len; i++) {
 		if (codeString[i] === "-") {
-			timer.setTimeout(
-				function playMorseCode() {
-					_slash.play();
-					//TODO: Fix permissions prior to use!
-					console.log("Trying to vibrate for 500ms");
-					vibrator.vibration(500);
-					console.log(model.sliderCurrentValue);
-
-				}, model.sliderDelayCurrentValue * (i + 1));
+			timer.setTimeout(playSlashMorseCode, model.sliderDelayCurrentValue * (i + 1));
 		} else if (codeString[i] === ".") {
-			timer.setTimeout(
-				function playMorseCode() {
-					_dot.play();
-					//TODO: Fix permissions prior to use!
-					console.log("Trying to vibrate for 250ms");
-
-					vibrator.vibration(250);
-					console.log(model.sliderCurrentValue);
-				}, model.sliderDelayCurrentValue * (i + 1));
+			timer.setTimeout(playDotMorseCode, model.sliderDelayCurrentValue * (i + 1));
 		}
+	}
+}
+
+function playSlashMorseCode() {
+	_slash.play();
+	if (vibrator !== null){
+		console.log("Trying to vibrate for 500ms");
+		vibrator.vibration(500);
+	} else {
+		console.log("Vibration not available on emulator!");
+	}
+	
+}
+
+function playDotMorseCode() {
+	_dot.play();
+	if (vibrator !== null){
+		console.log("Trying to vibrate for 250ms");
+		vibrator.vibration(250);
+	} else {
+		console.log("Vibration not available on emulator!");
 	}
 }
 
@@ -243,7 +252,7 @@ function decodeTextToMorse(text) {
 	_decodedMorseArray = new observableModule.ObservableArray();
 
 	text = text.toUpperCase();
-	console.log(text)
+	console.log(text);
 
 	for (var i = 0, len = text.length; i < len; i++) {
 		for (var y = 0; y < _morseCodeArray.length; y++) {
