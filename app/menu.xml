@@ -5,7 +5,7 @@
                 <TabViewItem.view>
                     <StackLayout>
                         <Label text="This will be the text to morse code section..." id="morsifyLabel" />
-                        <StackLayout class="morsifyStack"> 
+                        <StackLayout class="morsifyStack">
                             <TextView hint="enter text to morsify" text="{{ Enter text to morsify }}" editable="true" class="morsifyTextView" />
                             <TextView hint="enter morse to textify" text="{{ Enter morse to textify }}" editable="true" class="morsifyTextView" />
                             <Button text="Create Light Morse Code" class="morsifyButton"/>
@@ -22,11 +22,15 @@
             </TabViewItem>
             <TabViewItem title="Settings">
                 <TabViewItem.view>
-                    <StackLayout>
-                    	<Label text="This will be settings section..." id="settingsLabel" />
-                        <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderMinValue }}" maxValue="{{ sliderMaxValue }}" value="{{ sliderCurrentValue }}" />
-                        <Label text="{{ sliderCurrentValue }}" />
-                    </StackLayout>
+                    <GridLayout columns="auto, *, auto" rows="auto, auto, *" >
+                        <Label text="Delay between codes" col="0" row="0" />
+                        <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderDelayMinValue }}" maxValue="{{ sliderDelayMaxValue }}" value="{{ sliderDelayCurrentValue }}" col="1" row="0" />
+                        <Label text="{{ sliderDelayCurrentValue }}" col="2" row="0" />
+
+                        <Label text="Morse code volume" col="0" row="1" />
+                        <Slider id="morseCodeVolumeSlider" propertyChange="changeSliderValues" minValue="{{ sliderVolumeMinValue }}" maxValue="{{ sliderVolumeMaxValue }}" value="{{ sliderVolumeCurrentValue }}" col="1" row="1" />
+                        <Label text="{{ sliderVolumeCurrentValue }}" col="2" row="1" />
+                    </GridLayout>
                 </TabViewItem.view>
             </TabViewItem>
             <TabViewItem title="Alphabet">

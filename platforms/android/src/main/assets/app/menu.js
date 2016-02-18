@@ -3,6 +3,7 @@ var sound = require("nativescript-sound");
 var observableModule = require("data/observable-array");
 var observableModel = require("data/observable");
 var timer = require("timer");
+var vibrator = require("nativescript-vibrate");
 
 var _dot;
 var _slash;
@@ -19,9 +20,12 @@ function onLoad(args) {
 
 	model = new observableModel.Observable(
 	{
-	  "sliderMinValue": 600,
-	  "sliderMaxValue": 1800,
-	  "sliderCurrentValue": 600,
+	  "sliderDelayMinValue": morseDelay,
+	  "sliderDelayMaxValue": 3 * morseDelay,
+	  "sliderDelayCurrentValue": morseDelay,
+	  "sliderVolumeMinValue": 0,
+	  "sliderVolumeMaxValue": 100,
+	  "sliderVolumeCurrentValue": 70
 	}
 	);
 
@@ -88,16 +92,20 @@ function onListViewTap(args) {
       timer.setTimeout(
         function playMorseCode(){
           _slash.play();
+          //TODO: Fix permissions prior to use!
+          //vibrator.vibration(500);
           console.log(model.sliderCurrentValue);
         }
-        , model.sliderCurrentValue * (i + 1));
+        , model.sliderDelayCurrentValue * (i + 1));
   	} else if (codeString[i] === ".") {
       timer.setTimeout(
         function playMorseCode(){
           _dot.play();
+          //TODO: Fix permissions prior to use!
+          //vibrator.vibration(250);
           console.log(model.sliderCurrentValue);
         }
-        , model.sliderCurrentValue * (i + 1));
+        , model.sliderDelayCurrentValue * (i + 1));
   	}
 	}
 }
