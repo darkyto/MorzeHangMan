@@ -80,7 +80,6 @@ function onLoad(args) {
 	page.bindingContext = model;
 }
 
-
 function onListViewTap(args) {
   var itemIndex = args.index;
 

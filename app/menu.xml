@@ -7,11 +7,12 @@
                         <Label text="This will be the text to morse code section..." id="morsifyLabel" />
                         <StackLayout class="morsifyStack">
                             
-                            <GridLayout columns="*, *, auto" rows="auto, auto, auto, auto, auto, auto, auto" >
-                                <TextView hint="enter text to morsify" text="{{ Enter text to morsify }}" editable="true" class="morsifyTextView" col="0" row="0" colSpan="2" rowSpan="2"   />
+                            <GridLayout columns="*, *, auto" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" >
+           
+                                <TextView hint="enter text to morsify" text="{{ sample text }}" editable="true" class="morsifyTextView" col="0" row="0" colSpan="2" rowSpan="2"   />
                                 <Button text="Encode Text" col="2" row="0" rowSpan="2" tap="" class="morsifyButton"/>
 
-                                <TextView hint="enter morse to decode" text="{{ Enter morse to textify }}" editable="true" class="morsifyTextView" col="0" row="2" colSpan="2" rowSpan="2" />
+                                <TextView hint="enter morse to decode" text="{{ sample morse }}" editable="true" class="morsifyTextView" col="0" row="2" colSpan="2" rowSpan="2" />
                                 <Button text="Decode Morse" col="2" row="2" rowSpan="2" tap="" class="morsifyButton"/>
 
                                 <Button text="Generate Light Morse Code" col="0" row="4" colSpan="3" tap="" class="morsifyButton"/>
