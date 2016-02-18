@@ -80,6 +80,7 @@ function onLoad(args) {
 	page.bindingContext = model;
 }
 
+
 function onListViewTap(args) {
   var itemIndex = args.index;
 
@@ -96,7 +97,7 @@ function onListViewTap(args) {
           console.log("Trying to vibrate for 500ms");
           vibrator.vibration(500);
           console.log(model.sliderCurrentValue);
-          
+
         }
         , model.sliderDelayCurrentValue * (i + 1));
   	} else if (codeString[i] === ".") {

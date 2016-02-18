@@ -16,11 +16,11 @@
 
 .morsifyStack {
 	vertical-align: center;
-	height: 400;
 	background-color: white;
 	border-radius: 10;
 	border-width: 2;
 	border-color: gray;
+	padding: 10;
 	margin: 10;
 }
 
@@ -29,4 +29,5 @@
 	border-width: 2;
 	border-radius: 10;
 	border-color: gray;
+	height: 40;
 }

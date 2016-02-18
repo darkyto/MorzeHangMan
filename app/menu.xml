@@ -6,9 +6,19 @@
                     <StackLayout>
                         <Label text="This will be the text to morse code section..." id="morsifyLabel" />
                         <StackLayout class="morsifyStack">
-                            <TextView hint="enter text to morsify" text="{{ Enter text to morsify }}" editable="true" class="morsifyTextView" />
-                            <TextView hint="enter morse to textify" text="{{ Enter morse to textify }}" editable="true" class="morsifyTextView" />
-                            <Button text="Create Light Morse Code" class="morsifyButton"/>
+                            
+                            <GridLayout columns="*, *, auto" rows="auto, auto, auto, auto, auto, auto, auto" >
+                                <TextView hint="enter text to morsify" text="{{ Enter text to morsify }}" editable="true" class="morsifyTextView" col="0" row="0" colSpan="2" rowSpan="2"   />
+                                <Button text="Encode Text" col="2" row="0" rowSpan="2" tap="" class="morsifyButton"/>
+
+                                <TextView hint="enter morse to decode" text="{{ Enter morse to textify }}" editable="true" class="morsifyTextView" col="0" row="2" colSpan="2" rowSpan="2" />
+                                <Button text="Decode Morse" col="2" row="2" rowSpan="2" tap="" class="morsifyButton"/>
+
+                                <Button text="Generate Light Morse Code" col="0" row="4" colSpan="3" tap="" class="morsifyButton"/>
+                                <Button text="Create File with Morse Code" col="0" row="5" colSpan="3"  tap="" class="morsifyButton"/>
+                                <Button text="Send Morse Code Mail" col="0" row="6" colSpan="3"  tap="" class="morsifyButton"/>
+                            </GridLayout>
+
                         </StackLayout>
                     </StackLayout>
                 </TabViewItem.view>
