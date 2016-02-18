@@ -11,24 +11,24 @@ var morseDelay = 600;
 var model;
 
 function onLoad(args) {
-  var page = args.object;
-  page.addCssFile("~/styles/menu.css");
+	var page = args.object;
+	page.addCssFile("~/styles/menu.css");
 
-  _dot = sound.create("~/res/morse-dot.mp3");
-  _slash = sound.create("~/res/morse-slash.mp3");
+	_dot = sound.create("~/res/morse-dot.mp3");
+	_slash = sound.create("~/res/morse-slash.mp3");
 
-  model = new observableModel.Observable(
-    {
-      "sliderMinValue": 600,
-      "sliderMaxValue": 1800,
-      "sliderCurrentValue": 600,
-    }
-  );
+	model = new observableModel.Observable(
+	{
+	  "sliderMinValue": 600,
+	  "sliderMaxValue": 1800,
+	  "sliderCurrentValue": 600,
+	}
+	);
 
-  var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
-  var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
+	var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
+	var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
 
-  _morseCodeArray = new observableModule.ObservableArray();
+  	_morseCodeArray = new observableModule.ObservableArray();
 
 	_morseCodeArray.push({letter: "LETTER", code: 'CODE'});
 
@@ -72,13 +72,8 @@ function onLoad(args) {
 	_morseCodeArray.push({letter: "8", code: '---..'});
 	_morseCodeArray.push({letter: "9", code: '----.'});
 
-  // var _morseDelaySlider = view.getViewById(page, "morseDelaySlider");
-
-  // _morseDelaySlider.sliderMinValue = sliderMinValue;
-  // _morseDelaySlider.sliderMaxValue = sliderMaxValue;
-  // _morseDelaySlider.sliderCurrentValue = sliderCurrentValue;
-
-	page.bindingContext = {myMorseItems: _morseCodeArray};
+	model.set("myMorseItems", _morseCodeArray);
+	page.bindingContext = model;
 }
 
 function onListViewTap(args) {
@@ -93,12 +88,14 @@ function onListViewTap(args) {
       timer.setTimeout(
         function playMorseCode(){
           _slash.play();
+          console.log(model.sliderCurrentValue);
         }
         , model.sliderCurrentValue * (i + 1));
   	} else if (codeString[i] === ".") {
       timer.setTimeout(
         function playMorseCode(){
           _dot.play();
+          console.log(model.sliderCurrentValue);
         }
         , model.sliderCurrentValue * (i + 1));
   	}

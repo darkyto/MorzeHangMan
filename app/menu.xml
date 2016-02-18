@@ -10,7 +10,6 @@
                             <TextView hint="enter morse to textify" text="{{ Enter morse to textify }}" editable="true" class="morsifyTextView" />
                             <Button text="Create Light Morse Code" class="morsifyButton"/>
                         </StackLayout>
-                        
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
@@ -25,7 +24,8 @@
                 <TabViewItem.view>
                     <StackLayout>
                     	<Label text="This will be settings section..." id="settingsLabel" />
-                        <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderMinValue }}" maxValue="{{ sliderMaxValue }}" value=" {{ sliderCurrentValue }}" />
+                        <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderMinValue }}" maxValue="{{ sliderMaxValue }}" value="{{ sliderCurrentValue }}" />
+                        <Label text="{{ sliderCurrentValue }}" />
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
