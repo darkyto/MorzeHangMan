@@ -26,7 +26,6 @@
                     <StackLayout>
                     	<Label text="This will be settings section..." id="settingsLabel" />
                         <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderMinValue }}" maxValue="{{ sliderMaxValue }}" value=" {{ sliderCurrentValue }}" />
-                        <!-- <Label text="{{ sliderValue }}" textWrap="true" /> -->
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
