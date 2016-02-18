@@ -35,21 +35,18 @@ function onLoad(args) {
 
 	generateMorseObservableArray();
 
-
 	model.set("myMorseItems", _morseCodeArray);
-	page.bindingContext = model;
-	
+	page.bindingContext = model;	
 }
 
 function onEncodeButtonTap(args) {
 	var page = args.object.page;
 	var textInput = model.get("textToMorse");
-	var resultOutput = encodeTextToMorse(textInput);
+	var resultOutput = decodeTextToMorse(textInput);
 	console.log(resultOutput);
 
 	model.set("morseToText", resultOutput);
 }
-
 
 function onListViewTap(args) {
 	var itemIndex = args.index;
@@ -239,10 +236,9 @@ function generateMorseObservableArray() {
 		letter: "9",
 		code: '----.'
 	});
-
 }
 
-function encodeTextToMorse(text) {
+function decodeTextToMorse(text) {
 
 	_decodedMorseArray = new observableModule.ObservableArray();
 
