@@ -1,13 +1,14 @@
 var view = require("ui/core/view");
 var sound = require("nativescript-sound");
 var observableModule = require("data/observable-array");
+var observableModel = require("data/observable");
 var timer = require("timer");
 
 var _dot;
 var _slash;
 var _morseCodeArray;
-
 var morseDelay = 600;
+var model;
 
 function onLoad(args) {
   var page = args.object;
@@ -15,7 +16,15 @@ function onLoad(args) {
 
   _dot = sound.create("~/res/morse-dot.mp3");
   _slash = sound.create("~/res/morse-slash.mp3");
-  
+
+  model = new observableModel.Observable(
+    {
+      "sliderMinValue": 600,
+      "sliderMaxValue": 1800,
+      "sliderCurrentValue": 600,
+    }
+  );
+
   var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
   var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
 
@@ -63,6 +72,12 @@ function onLoad(args) {
 	_morseCodeArray.push({letter: "8", code: '---..'});
 	_morseCodeArray.push({letter: "9", code: '----.'});
 
+  // var _morseDelaySlider = view.getViewById(page, "morseDelaySlider");
+
+  // _morseDelaySlider.sliderMinValue = sliderMinValue;
+  // _morseDelaySlider.sliderMaxValue = sliderMaxValue;
+  // _morseDelaySlider.sliderCurrentValue = sliderCurrentValue;
+
 	page.bindingContext = {myMorseItems: _morseCodeArray};
 }
 
@@ -79,13 +94,13 @@ function onListViewTap(args) {
         function playMorseCode(){
           _slash.play();
         }
-        , morseDelay * (i + 1));
+        , model.sliderCurrentValue * (i + 1));
   	} else if (codeString[i] === ".") {
       timer.setTimeout(
         function playMorseCode(){
           _dot.play();
         }
-        , morseDelay * (i + 1));
+        , model.sliderCurrentValue * (i + 1));
   	}
 	}
 }
