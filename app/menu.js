@@ -96,6 +96,7 @@ function onListViewTap(args) {
           console.log("Trying to vibrate for 500ms");
           vibrator.vibration(500);
           console.log(model.sliderCurrentValue);
+          
         }
         , model.sliderDelayCurrentValue * (i + 1));
   	} else if (codeString[i] === ".") {
@@ -104,6 +105,7 @@ function onListViewTap(args) {
           _dot.play();
           //TODO: Fix permissions prior to use!
           console.log("Trying to vibrate for 250ms");
+
           vibrator.vibration(250);
           console.log(model.sliderCurrentValue);
         }

@@ -36,13 +36,15 @@
             <TabViewItem title="Alphabet">
                 <TabViewItem.view>
                     <StackLayout >
-                    	<Label text="This will be morse alphabet section..." id="morseAlphabetLabel" />
-                        <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">
+                    	<Label text="Alphabet to Morse code with sound generator" id="morseAlphabetLabel" />
+
+                        <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
                             <ListView.itemTemplate >
-                                <StackLayout orientation="horizontal" stretch="fill">
-                                   <Label text="{{ letter }}"  textWrap="true" class="morseLetterLabel" />
-                                   <Label text="{{ code }}"  textWrap="true" class="morseLetterLabel" />
-                                </StackLayout>
+                                <GridLayout columns="*, *, auto">
+                                   <Label text="{{ letter }}" col="0" textWrap="true" class="morseLetterLabel" />
+                                   <Label text="{{ code }}" col="1" textWrap="true" class="morseLetterLabel" />
+                                   <Image src="~/res/play_button.png" col="2" class="playButton" id="playImage" stretch="aspectFit"/>
+                                </GridLayout>
                             </ListView.itemTemplate>
                         </ListView>
                     </StackLayout>
