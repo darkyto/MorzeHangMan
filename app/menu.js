@@ -255,6 +255,7 @@ function encodeTextToMorse(text) {
 
 			if (text[i] === currentLetter) {
 				_decodedMorseArray.push(currentItem['code']);
+				_decodedMorseArray.push(" ");
 			} else if (text[i] === " ") {
 				_decodedMorseArray.push(" ");
 			}
