@@ -31,3 +31,11 @@
 	border-color: gray;
 	height: 40;
 }
+
+.funcButton {
+	margin: 5;
+	border-width: 2;
+	border-radius: 10;
+	border-color: gray;
+	height: 40;
+}

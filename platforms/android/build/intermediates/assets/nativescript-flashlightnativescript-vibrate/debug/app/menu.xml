@@ -1,0 +1,66 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoad">
+    <TabView selectedIndexChanged="indexChange" id="tabNavigation">
+        <TabView.items>
+            <TabViewItem title="Morsify">
+                <TabViewItem.view>
+                    <StackLayout>
+                        <Label text="This will be the text to morse code section..." id="morsifyLabel" />
+                        <StackLayout class="morsifyStack">
+                            
+                            <GridLayout columns="*, *, auto" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" >
+           
+                                <TextView hint="enter text to morsify" text="{{ sample text }}" editable="true" class="morsifyTextView" col="0" row="0" colSpan="2" rowSpan="2" />
+                                <Button text="Encode Text" col="2" row="0" rowSpan="2" tap="" class="morsifyButton"/>
+
+                                <TextView hint="enter morse to decode" text="{{ sample morse }}" editable="true" class="morsifyTextView" col="0" row="2" colSpan="2" rowSpan="2" />
+                                <Button text="Decode Morse" col="2" row="2" rowSpan="2" tap="" class="morsifyButton"/>
+
+                                <Button text="Generate Light Morse Code" col="0" row="4" colSpan="3" tap="" class="morsifyButton"/>
+                                <Button text="Create File with Morse Code" col="0" row="5" colSpan="3"  tap="" class="morsifyButton"/>
+                                <Button text="Send Morse Code Mail" col="0" row="6" colSpan="3"  tap="" class="morsifyButton"/>
+                            </GridLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+            <TabViewItem title="Quiz">
+                <TabViewItem.view>
+                    <StackLayout>
+                        <Label text="This will be quiz section..." id="quizLabel" />
+                    </StackLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+            <TabViewItem title="Settings">
+                <TabViewItem.view>
+                    <GridLayout columns="auto, *, auto" rows="auto, auto, *" >
+                        <Label text="Delay between codes" col="0" row="0" />
+                        <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderDelayMinValue }}" maxValue="{{ sliderDelayMaxValue }}" value="{{ sliderDelayCurrentValue }}" col="1" row="0" />
+                        <Label text="{{ sliderDelayCurrentValue }}" col="2" row="0" />
+
+                        <Label text="Morse code volume" col="0" row="1" />
+                        <Slider id="morseCodeVolumeSlider" propertyChange="changeSliderValues" minValue="{{ sliderVolumeMinValue }}" maxValue="{{ sliderVolumeMaxValue }}" value="{{ sliderVolumeCurrentValue }}" col="1" row="1" />
+                        <Label text="{{ sliderVolumeCurrentValue }}" col="2" row="1" />
+                    </GridLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+            <TabViewItem title="Alphabet">
+                <TabViewItem.view>
+                    <StackLayout >
+                    	<Label text="Alphabet to Morse code with sound generator" id="morseAlphabetLabel" />
+
+                        <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
+                            <ListView.itemTemplate >
+                                <GridLayout columns="*, *, auto">
+                                   <Label text="{{ letter }}" col="0" textWrap="true" class="morseLetterLabel" />
+                                   <Label text="{{ code }}" col="1" textWrap="true" class="morseLetterLabel" />
+                                   <Image src="~/res/play_button.png" col="2" class="playButton" id="playImage" stretch="aspectFit"/>
+                                </GridLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+        </TabView.items>
+    </TabView>
+</Page>
