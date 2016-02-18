@@ -1,0 +1,17 @@
+.container {
+	background-color: #5F6B61;
+	color:#DCF0F7;
+}
+
+.stackContainer {
+	vertical-align: center;
+}
+
+.splashImage {
+	margin: 20;
+}
+
+.splashButton {
+    font-size: 36;
+    color : gray;
+}

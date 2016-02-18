@@ -93,7 +93,8 @@ function onListViewTap(args) {
         function playMorseCode(){
           _slash.play();
           //TODO: Fix permissions prior to use!
-          //vibrator.vibration(500);
+          console.log("Trying to vibrate for 500ms");
+          vibrator.vibration(500);
           console.log(model.sliderCurrentValue);
         }
         , model.sliderDelayCurrentValue * (i + 1));
@@ -102,7 +103,8 @@ function onListViewTap(args) {
         function playMorseCode(){
           _dot.play();
           //TODO: Fix permissions prior to use!
-          //vibrator.vibration(250);
+          console.log("Trying to vibrate for 250ms");
+          vibrator.vibration(250);
           console.log(model.sliderCurrentValue);
         }
         , model.sliderDelayCurrentValue * (i + 1));

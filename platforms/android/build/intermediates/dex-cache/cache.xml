@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\libs\nativescript.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e49ee2301dce2f85edd44f634fd45ad92df9e00a">
+        <dex dex="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-vibrate\debug\nativescript-4f0270380e611298553e6d0e9dd9562650bf87ef.jar" />
+    </item>
+    <item
+        jar="C:\Users\Admin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-vibrate\debug\support-annotations-23.1.1-ccd81682849331a0d1ebde7d37dc512d0cd3805a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\libs\widgets.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ff3c62a8eb22f0111b882125ad1579dc6273fd90">
+        <dex dex="C:\Users\Admin\Desktop\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-vibrate\debug\widgets-74ec2dcfa0dd83aa0ab815a5d8916c19af11e657.jar" />
+    </item>
+
+</items>
