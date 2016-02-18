@@ -243,6 +243,7 @@ function decodeTextToMorse(text) {
 	_decodedMorseArray = new observableModule.ObservableArray();
 
 	text = text.toUpperCase();
+	console.log(text)
 
 	for (var i = 0, len = text.length; i < len; i++) {
 		for (var y = 0; y < _morseCodeArray.length; y++) {
@@ -257,8 +258,9 @@ function decodeTextToMorse(text) {
 			}
 		}
 	}
-
-	return _decodedMorseArray.join(' ');
+	var result = _decodedMorseArray.join('');
+	result = result.replace(/\s\s+/g, '\n');
+	return result;
 }
 
 exports.onLoad = onLoad;
