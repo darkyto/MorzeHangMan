@@ -1,0 +1,65 @@
+{
+  "name": "nativescript-effects",
+  "version": "0.2.3",
+  "main": "tns-effects.js",
+  "description": "A NativeScript plugin that extend animations to include common animation scenarios.",
+  "nativescript": {
+    "platforms": {
+      "android": "1.5.0",
+      "ios": "1.5.2"
+    },
+    "tns-ios": {
+      "version": "1.5.2"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexziskind1/nativescript-effects.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "native",
+    "script",
+    "animation",
+    "effects"
+  ],
+  "contributors": [],
+  "author": {
+    "name": "Alexander Ziskind",
+    "email": "alex@nuvious.com",
+    "url": "https://github.com/alexziskind1"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexziskind1/nativescript-effects/issues"
+  },
+  "homepage": "https://github.com/alexziskind1/nativescript-effects",
+  "gitHead": "7a5addbe9192a7708fbaac9db42e33f2a156fea6",
+  "_id": "nativescript-effects@0.2.3",
+  "scripts": {},
+  "_shasum": "c1a01f3fe09ea90a1a524aea58e471726c40aeda",
+  "_from": "nativescript-effects@latest",
+  "_resolved": "https://registry.npmjs.org/nativescript-effects/-/nativescript-effects-0.2.3.tgz",
+  "_npmVersion": "2.11.3",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "alexziskind1",
+    "email": "alex@nuvious.com"
+  },
+  "maintainers": [
+    {
+      "name": "alexziskind1",
+      "email": "alex@nuvious.com"
+    }
+  ],
+  "dist": {
+    "shasum": "c1a01f3fe09ea90a1a524aea58e471726c40aeda",
+    "tarball": "http://registry.npmjs.org/nativescript-effects/-/nativescript-effects-0.2.3.tgz"
+  },
+  "_npmOperationalInternal": {
+    "host": "packages-6-west.internal.npmjs.com",
+    "tmp": "tmp/nativescript-effects-0.2.3.tgz_1455745297156_0.997998422011733"
+  },
+  "directories": {},
+  "readme": "ERROR: No README data found!"
+}
