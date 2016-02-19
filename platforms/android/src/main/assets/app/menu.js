@@ -96,19 +96,36 @@ function onLoad(args) {
 	model.set("myMorseItems", _morseCodeArray);
 	page.bindingContext = model;	
 }
-
-function simulateLight() {
+function simulateDotLight() {
 
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
 
     mainContainer.animate({
     	backgroundColor: new colorModule.Color("#FFFF00"),
-    	duration: 150
+    	duration: 100
     }).then(function() { return mainContainer.animate({
     	backgroundColor: new colorModule.Color("#000000"),
-    	duration: 150
+    	duration: 100
     	});
 	});	
+}
+function simulateDashLight() {
+
+	var mainContainer = viewModule.getViewById(page, "menuContainer");
+
+    mainContainer.animate({
+    	backgroundColor: new colorModule.Color("#FFFF00"),
+    	duration: 300
+    }).then(function() { return mainContainer.animate({
+    	backgroundColor: new colorModule.Color("#000000"),
+    	duration: 300
+    	});
+	});	
+}
+
+function setBackOpacity() {
+	var mainTab = viewModule.getViewById(page, "tabNavigation");
+	mainTab.opacity = 1;
 }
 
 function onCreateLightTap(args) {
@@ -120,10 +137,14 @@ function onCreateLightTap(args) {
 	for (var i = 0; i < stringFromApp.length; i++) {
 		if (stringFromApp[i] === "-") {
 			console.log("dash light");
-			timer.setTimeout(simulateLight, 600 * (i + 1));
+			timer.setTimeout(simulateDashLight, 600 * (i + 1));
 		} else if (stringFromApp[i] === ".") {
 			console.log("dot light");
-			timer.setTimeout(simulateLight, 300 * (i + 1));
+			timer.setTimeout(simulateDotLight, 600 * (i + 1));
+		}
+
+		if (i == stringFromApp.length - 1) {
+			timer.setTimeout(setBackOpacity, 600 * (i + 2));
 		}
 	}
 
