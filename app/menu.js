@@ -70,6 +70,7 @@ function onLoad(args) {
     	duration: 1000
     });	
 
+
 	_dot = sound.create("~/res/morse-dot.mp3");
 	_slash = sound.create("~/res/morse-slash.mp3");
 

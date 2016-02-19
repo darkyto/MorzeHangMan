@@ -5,6 +5,7 @@
 var frameModule = require("ui/frame");
 var observableModule = require("data/observable");
 var viewModule = require("ui/core/view");
+var enums = require("ui/enums");
 //var colorModule = require("color");
 
 // testing purposes
@@ -33,8 +34,29 @@ function pageLoaded(args) {
     	rotate: 360,
     	duration: 3000
     });
-}
 
+
+    var labelOne = viewModule.getViewById(page, "splashLabelOne");
+    var labelTwo = viewModule.getViewById(page, "splashLabelTwo");
+
+    labelOne.animate({ scale: { x: 0.3, y: 0.3 }  })
+        .then(function () { return labelOne.animate({ scale: { x: 1, y: 1 } }); })
+        .then(function () { return labelOne.animate({ translate: { x: 60, y: 0 }, duration:600 }); })
+        .then(function () { return labelOne.animate({ translate: { x: -60, y: 0 }, duration:600  }); })
+        .then(function () { return labelOne.animate({ translate: { x: 0, y: 0 }, duration:300  }); })
+        .then(function () {
+        console.log("Animation finished");
+    });
+
+    labelTwo.animate({ scale: { x: 0.3, y: 0.3 }  })
+        .then(function () { return labelTwo.animate({ scale: { x: 1, y: 1 } }); })
+        .then(function () { return labelTwo.animate({ translate: { x: -60, y: 0 }, duration:600 }); })
+        .then(function () { return labelTwo.animate({ translate: { x: 60, y: 0 }, duration:600  }); })
+        .then(function () { return labelTwo.animate({ translate: { x: 0, y: 0 }, duration:300  }); })
+        .then(function () {
+        console.log("Animation finished");
+    });    
+}
 
 function navToMenu() {
 	topmost.navigate("./menu");

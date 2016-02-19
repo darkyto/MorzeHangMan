@@ -1,8 +1,10 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="container">
-  <StackLayout class="stackContainer" tap="navToMenu" >	
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="container" tap="navToMenu" >
+  <StackLayout class="stackContainer" >	
   	<Image src="~/res/logo_morse.png" id="logoImage" class="splashImage" stretch="aspectFit"/>
 
-  	<Button text="Start" tap="navToMenu" class="splashButton" stretch="aspectFit"/>	
+  	<Label text=".-.. . .- .-. -." id="splashLabelOne" tap="navToMenu" class="splashLabel" stretch="aspectFit"/>	
+  	<Label text="-- --- .-. ... ." id="splashLabelTwo" tap="navToMenu" class="splashLabel" stretch="aspectFit"/>	
+ 
   	<!-- <Button text="{{ flashlightState }}" tap="{{ toggleFlashlight }}" class="splashButton" stretch="aspectFit"/> -->
   </StackLayout>
 </Page>
