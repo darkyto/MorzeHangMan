@@ -1,4 +1,8 @@
-﻿.playButton {
+﻿
+#menuContainer {
+	background-color: black;
+}
+.playButton {
 	width: 32;
 	height: 32;
 	margin: 20;

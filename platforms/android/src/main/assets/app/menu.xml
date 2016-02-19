@@ -1,5 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoad">
-    <TabView selectedIndexChanged="indexChange" id="tabNavigation">
+    <StackLayout id="menuContainer">
+            <TabView selectedIndexChanged="indexChange" id="tabNavigation">
         <TabView.items>
             <TabViewItem title="Morsify">
                 <TabViewItem.view>
@@ -9,7 +10,7 @@
                                 <Button text="Encode Text" col="3" row="0" rowSpan="2" class="funcButton" tap="onEncodeButtonTap"/>
                                 <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
                                 <Button text="Decode Morse" col="3" row="2" rowSpan="2" tap="" class="funcButton"/>
-                                <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="" class="morsifyButton"/>
+                                <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="onCreateLightTap" class="morsifyButton"/>
                                 <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="onCreateFileTap" class="morsifyButton"/>
                                 <Button text="Send Morse Code File via Email" col="0" row="6" colSpan="4"  tap="onSendFileViaMailTap" class="morsifyButton"/>
                             </GridLayout>
@@ -47,7 +48,7 @@
             <TabViewItem title="Alphabet">
                 <TabViewItem.view>
                     <StackLayout >
-                    	<Label text="Alphabet to Morse code with sound generator" id="morseAlphabetLabel" />
+                        <Label text="Alphabet to Morse code with sound generator" id="morseAlphabetLabel" />
 
                         <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
                             <ListView.itemTemplate >
@@ -63,4 +64,6 @@
             </TabViewItem>
         </TabView.items>
     </TabView>
+    </StackLayout>
+
 </Page>

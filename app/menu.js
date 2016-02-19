@@ -4,6 +4,8 @@
 
 var observableModule = require("data/observable-array");
 var observableModel = require("data/observable");
+var viewModule = require("ui/core/view");
+var colorModule = require("color");
 
 var sound = require("nativescript-sound");
 var timer = require("timer");
@@ -14,6 +16,7 @@ var applicationSettings = require("application-settings");
 var dialogs = require("ui/dialogs");
 var tnsfx = require('nativescript-effects');
 
+var page;
 var _dot;
 var _slash;
 var _morseCodeArray;
@@ -59,7 +62,7 @@ codes["8"] = '---..';
 codes["9"] = '----.';
 
 function onLoad(args) {
-	var page = args.object;
+	page = args.object;
 	page.addCssFile("~/styles/menu.css");
 
 	var myTab = page.getViewById('tabNavigation');		
@@ -69,7 +72,6 @@ function onLoad(args) {
     	scale: { x: 1, y: 1},
     	duration: 1000
     });	
-
 
 	_dot = sound.create("~/res/morse-dot.mp3");
 	_slash = sound.create("~/res/morse-slash.mp3");
@@ -93,6 +95,38 @@ function onLoad(args) {
 
 	model.set("myMorseItems", _morseCodeArray);
 	page.bindingContext = model;	
+}
+
+function simulateLight() {
+
+	var mainContainer = viewModule.getViewById(page, "menuContainer");
+
+    mainContainer.animate({
+    	backgroundColor: new colorModule.Color("#FFFF00"),
+    	duration: 150
+    }).then(function() { return mainContainer.animate({
+    	backgroundColor: new colorModule.Color("#000000"),
+    	duration: 150
+    	});
+	});	
+}
+
+function onCreateLightTap(args) {
+	var page = args.object.page;
+	var mainTab = viewModule.getViewById(page, "tabNavigation");
+	mainTab.opacity = 0.1;
+
+	var stringFromApp = applicationSettings.getString("morse-data");
+	for (var i = 0; i < stringFromApp.length; i++) {
+		if (stringFromApp[i] === "-") {
+			console.log("dash light");
+			timer.setTimeout(simulateLight, 600 * (i + 1));
+		} else if (stringFromApp[i] === ".") {
+			console.log("dot light");
+			timer.setTimeout(simulateLight, 300 * (i + 1));
+		}
+	}
+
 }
 
 function onSendFileViaMailTap() {
@@ -318,3 +352,4 @@ exports.unmaskWord = unmaskWord;
 exports.playMaskedWord = playMaskedWord;
 exports.onCreateFileTap = onCreateFileTap;
 exports.onSendFileViaMailTap = onSendFileViaMailTap;
+exports.onCreateLightTap = onCreateLightTap;

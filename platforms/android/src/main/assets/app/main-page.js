@@ -41,8 +41,8 @@ function pageLoaded(args) {
 
     labelOne.animate({ scale: { x: 0.3, y: 0.3 }  })
         .then(function () { return labelOne.animate({ scale: { x: 1, y: 1 } }); })
-        .then(function () { return labelOne.animate({ translate: { x: 60, y: 0 }, duration:600 }); })
-        .then(function () { return labelOne.animate({ translate: { x: -60, y: 0 }, duration:600  }); })
+        .then(function () { return labelOne.animate({ translate: { x: 70, y: 0 }, duration:600 }); })
+        .then(function () { return labelOne.animate({ translate: { x: -70, y: 0 }, duration:600  }); })
         .then(function () { return labelOne.animate({ translate: { x: 0, y: 0 }, duration:300  }); })
         .then(function () {
         console.log("Animation finished");
@@ -50,8 +50,8 @@ function pageLoaded(args) {
 
     labelTwo.animate({ scale: { x: 0.3, y: 0.3 }  })
         .then(function () { return labelTwo.animate({ scale: { x: 1, y: 1 } }); })
-        .then(function () { return labelTwo.animate({ translate: { x: -60, y: 0 }, duration:600 }); })
-        .then(function () { return labelTwo.animate({ translate: { x: 60, y: 0 }, duration:600  }); })
+        .then(function () { return labelTwo.animate({ translate: { x: -70, y: 0 }, duration:600 }); })
+        .then(function () { return labelTwo.animate({ translate: { x: 70, y: 0 }, duration:600  }); })
         .then(function () { return labelTwo.animate({ translate: { x: 0, y: 0 }, duration:300  }); })
         .then(function () {
         console.log("Animation finished");
