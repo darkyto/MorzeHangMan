@@ -1,14 +1,15 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.MorzeHangMan",
-		"tns-android": {
-			"version": "1.5.1"
-		}
-	},
-	"dependencies": {
-		"nativescript-flashlight": "^1.0.1",
-		"nativescript-sound": "^1.0.4",
-		"nativescript-vibrate": "^1.1.1",
-		"tns-core-modules": "1.6.0-angular-0"
-	}
+  "nativescript": {
+    "id": "org.nativescript.MorzeHangMan",
+    "tns-android": {
+      "version": "1.5.1"
+    }
+  },
+  "dependencies": {
+    "nativescript-email": "^1.1.1",
+    "nativescript-flashlight": "^1.0.1",
+    "nativescript-sound": "^1.0.4",
+    "nativescript-vibrate": "^1.1.1",
+    "tns-core-modules": "1.6.0-angular-0"
+  }
 }

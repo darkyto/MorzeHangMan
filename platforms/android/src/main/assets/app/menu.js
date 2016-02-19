@@ -2,12 +2,16 @@
 /*jshint sub:true*/
 "use strict";
 
-var sound = require("nativescript-sound");
 var observableModule = require("data/observable-array");
 var observableModel = require("data/observable");
+
+var sound = require("nativescript-sound");
 var timer = require("timer");
 var vibrator = require("nativescript-vibrate");
 var http = require("http");
+var email = require("nativescript-email");
+var applicationSettings = require("application-settings");
+var dialogs = require("ui/dialogs");
 
 var _dot;
 var _slash;
@@ -81,11 +85,68 @@ function onLoad(args) {
 	page.bindingContext = model;	
 }
 
+function onSendFileViaMailTap() {
+	var stringFromApp = applicationSettings.getString("morse-data");
+	var receiver = "test@test.com";
+	dialogs.prompt({
+	  title: "Send morse code mail",
+	  message: "Enter receiver email",
+	  okButtonText: "Send Now!",
+	  cancelButtonText: "Cancel",
+	  defaultText: "sample-mail@mail.com",
+	  inputType: dialogs.inputType.text
+	}).then(function (r) {
+	  console.log("Dialog result: " + r.result + ", text: " + r.text);
+	  receiver = r.text;
+	});
+	// console.log("RECEIVER: "+receiver);
+
+	email.available().then(function(avail) {
+      console.log("Email available? " + avail);
+      if (avail) {
+  	    email.compose({
+		    subject: "Morse code mail",
+		    body: stringFromApp,
+		    to: [receiver]
+		}).then(function(r) {
+			dialogs.alert("Mail send").then(function() {
+			    console.log("Dialog closed!");
+			});
+		    console.log("Email composer closed");
+		});
+      }
+  	});
+}
+
+function onCreateFileTap() {
+	var textInput = model.get("textToMorse");
+	var resultOutput = decodeTextToMorse(textInput);
+
+	applicationSettings.setString("morse-data", resultOutput);
+	
+	// dialogs.action("File Successfully Saved!").then(function() {
+ //  		console.log("Dialog closed!");
+	// });
+	dialogs.action({
+	    message: "File Successfully Saved!",
+	    cancelButtonText: "OK",
+	    actions: ["Send file via email", "Delete file"]
+	}).then(function (result) {
+	    // console.log("Dialog result: " + result);
+	    if (result === "Send file via email") {
+	    	onSendFileViaMailTap();
+	    	console.log("send file option from dialog!");
+	    } else if (result === "Delete file") {
+    		applicationSettings.setString("morse-data", "");
+	    }
+	});
+
+}
+
 function onEncodeButtonTap() {
 	//var page = args.object.page;
 	var textInput = model.get("textToMorse");
 	var resultOutput = decodeTextToMorse(textInput);
-	console.log(resultOutput);
 
 	model.set("morseToText", resultOutput);
 }
@@ -148,8 +209,7 @@ function decodeTextToMorse(text) {
 
 	_decodedMorseArray = new observableModule.ObservableArray();
 
-	text = text.toUpperCase();
-	console.log(text);
+	text = text.toLowerCase();
 
 	for (var i = 0, len = text.length; i < len; i++) {
 		for (var y = 0; y < _morseCodeArray.length; y++) {
@@ -166,6 +226,7 @@ function decodeTextToMorse(text) {
 	}
 	var result = _decodedMorseArray.join('');
 	result = result.replace(/\s\s+/g, '\n');
+
 	return result;
 }
 
@@ -173,7 +234,6 @@ function fetchRandomWordFromApi(){
 	console.log('fetcher clicked!');
 
     http.getJSON("http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function (r) {
-    	console.log("got it!");
     	try{
     		var result = JSON.stringify(r);
     		var parsed = JSON.parse(result);
@@ -246,5 +306,7 @@ exports.fetchRandomWordFromApi = fetchRandomWordFromApi;
 exports.checkDecodedWord = checkDecodedWord;
 exports.unmaskWord = unmaskWord;
 exports.playMaskedWord = playMaskedWord;
+exports.onCreateFileTap = onCreateFileTap;
+exports.onSendFileViaMailTap = onSendFileViaMailTap;
 
 	
