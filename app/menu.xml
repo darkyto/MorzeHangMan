@@ -19,14 +19,14 @@
             <TabViewItem title="Quiz">
                 <TabViewItem.view>
                     <StackLayout class="quizStack">
-                            <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" >
-                                <TextView text = "{{ randomWordForTextLabel }}" hint="enter text to morsify" editable="true" class="fetchedWordTextView" col="0" row="0" colSpan="3" rowSpan="1"  />
-                                <Button text="GET!" col="3" row="0" rowSpan="1" class="btn" tap="fetchRandomWordFromApi"/>
-                                <!-- <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
-                                <Button text="Decode Morse" col="3" row="2" rowSpan="2" tap="" class="funcButton"/>
-                                <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="" class="morsifyButton"/>
-                                <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="" class="morsifyButton"/>
-                                <Button text="Send Morse Code Mail" col="0" row="6" colSpan="4"  tap="" class="morsifyButton"/> -->
+                            <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" >
+                                <TextView text = "{{ maskedRandomWordForTextLabel }}" hint="enter text to morsify" editable="false" class="fetchedWordTextView" col="0" row="0" colSpan="3" rowSpan="1" />
+                                <Button text="FETCH!" col="3" row="0" rowSpan="1" class="btn" tap="fetchRandomWordFromApi" />
+                                <TextView text = "{{ userDecodedWordAttempt }}" hint="decoded morse word..." editable="true" class="decodedWordTextView" col="0" row="1" colSpan="3" rowSpan="1" />
+                                <Button text="DECODE" col="3" row="1" rowSpan="1" class="btn" tap="checkDecodedWord"/>
+                                <Button text="UNMASK WORD" col="0" row="2" rowSpan="1" colspan="2" class="btn" tap="unmaskWord"/>
+                                <Button text="PLAY WORD" col="2" row="2" rowSpan="1" colspan="2" class="btn" tap="playMaskedWord"/>
+                                <TextView text="{{ userDecodedWordResult }}" editable="false" class="decodedResultTextView" col="0" row="4" colSpan="4" rowSpan="1" />
                             </GridLayout>
                         </StackLayout>
                 </TabViewItem.view>

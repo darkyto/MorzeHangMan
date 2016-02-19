@@ -15,6 +15,43 @@ var _morseCodeArray;
 var _decodedMorseArray;
 var morseDelay = 600;
 var model;
+var codes = {};
+codes["a"] = '.-';
+codes["b"] = '-...';
+codes["c"] = '-.-.';
+codes["d"] = '-..';
+codes["e"] = '.';
+codes["f"] = '..-.';
+codes["g"] = '--.';
+codes["h"] = '....';
+codes["i"] = '..';
+codes["j"] = '.---';
+codes["k"] = '-.-';
+codes["l"] = '.-..';
+codes["m"] = '--';
+codes["n"] = '-.';
+codes["o"] = '---';
+codes["p"] = '.--.';
+codes["q"] = '--.-';
+codes["r"] = '.-.';
+codes["s"] = '...';
+codes["t"] = '-';
+codes["u"] = '..-';
+codes["v"] = '...-';
+codes["w"] = '.--';
+codes["x"] = '-..-';
+codes["z"] = '-.--';
+codes["y"] = '--..';
+codes["0"] = '-----';
+codes["1"] = '.----';
+codes["2"] = '..---';
+codes["3"] = '...--';
+codes["4"] = '....-';
+codes["5"] = '.....';
+codes["6"] = '-....';
+codes["7"] = '--...';
+codes["8"] = '---..';
+codes["9"] = '----.';
 
 function onLoad(args) {
 	var page = args.object;
@@ -32,7 +69,10 @@ function onLoad(args) {
 		"sliderVolumeCurrentValue": 70,
 		"textToMorse" : "SOS",
 		"morseToText" : "... --- ...",
-		"randomWordForTextLabel" : "some random word"
+		"randomWordForTextLabel" : "obduscated",
+		"maskedRandomWordForTextLabel" : "obfuscated",
+		"userDecodedWordAttempt" : "",
+		"userDecodedWordResult" : "DECODED RESULT: DIFFERENT!"
 	});
 
 	generateMorseObservableArray();
@@ -96,153 +136,12 @@ function generateMorseObservableArray() {
 		code: 'CODE'
 	});
 
-	_morseCodeArray.push({
-		letter: "A",
-		code: '.-'
-	});
-	_morseCodeArray.push({
-		letter: "B",
-		code: '-...'
-	});
-	_morseCodeArray.push({
-		letter: "C",
-		code: '-.-.'
-	});
-	_morseCodeArray.push({
-		letter: "D",
-		code: '-..'
-	});
-	_morseCodeArray.push({
-		letter: "E",
-		code: '.'
-	});
-	_morseCodeArray.push({
-		letter: "F",
-		code: '..-.'
-	});
-	_morseCodeArray.push({
-		letter: "G",
-		code: '--.'
-	});
-	_morseCodeArray.push({
-		letter: "H",
-		code: '....'
-	});
-	_morseCodeArray.push({
-		letter: "I",
-		code: '..'
-	});
-	_morseCodeArray.push({
-		letter: "J",
-		code: '.---'
-	});
-
-	_morseCodeArray.push({
-		letter: "K",
-		code: '-.-'
-	});
-	_morseCodeArray.push({
-		letter: "L",
-		code: '.-..'
-	});
-	_morseCodeArray.push({
-		letter: "M",
-		code: '--'
-	});
-	_morseCodeArray.push({
-		letter: "N",
-		code: '-.'
-	});
-	_morseCodeArray.push({
-		letter: "O",
-		code: '---'
-	});
-	_morseCodeArray.push({
-		letter: "P",
-		code: '.--.'
-	});
-	_morseCodeArray.push({
-		letter: "Q",
-		code: '--.-'
-	});
-	_morseCodeArray.push({
-		letter: "R",
-		code: '.-.'
-	});
-	_morseCodeArray.push({
-		letter: "S",
-		code: '...'
-	});
-	_morseCodeArray.push({
-		letter: "T",
-		code: '-'
-	});
-
-	_morseCodeArray.push({
-		letter: "U",
-		code: '..-'
-	});
-	_morseCodeArray.push({
-		letter: "V",
-		code: '...-'
-	});
-	_morseCodeArray.push({
-		letter: "W",
-		code: '.--'
-	});
-	_morseCodeArray.push({
-		letter: "X",
-		code: '-..-'
-	});
-	_morseCodeArray.push({
-		letter: "Y",
-		code: '-.--'
-	});
-	_morseCodeArray.push({
-		letter: "Z",
-		code: '--..'
-	});
-
-	_morseCodeArray.push({
-		letter: "0",
-		code: '-----'
-	});
-	_morseCodeArray.push({
-		letter: "1",
-		code: '.----'
-	});
-	_morseCodeArray.push({
-		letter: "2",
-		code: '..---'
-	});
-	_morseCodeArray.push({
-		letter: "3",
-		code: '...--'
-	});
-	_morseCodeArray.push({
-		letter: "4",
-		code: '....-'
-	});
-	_morseCodeArray.push({
-		letter: "5",
-		code: '.....'
-	});
-	_morseCodeArray.push({
-		letter: "6",
-		code: '-....'
-	});
-	_morseCodeArray.push({
-		letter: "7",
-		code: '--...'
-	});
-	_morseCodeArray.push({
-		letter: "8",
-		code: '---..'
-	});
-	_morseCodeArray.push({
-		letter: "9",
-		code: '----.'
-	});
+	for (var key in codes) {
+ 		_morseCodeArray.push({
+		letter: key,
+		code: codes[key]
+		});
+	}
 }
 
 function decodeTextToMorse(text) {
@@ -280,6 +179,8 @@ function fetchRandomWordFromApi(){
     		var parsed = JSON.parse(result);
     		//console.log(parsed[0]["word"]);
     		model.randomWordForTextLabel = parsed[0]["word"];
+    		shuffleWord();
+    		model.userDecodedWordResult = "DECODED RESULT: DIFFERENT!";
     	}
     	catch (e){
     		console.log(e.message);
@@ -290,7 +191,60 @@ function fetchRandomWordFromApi(){
 	});
 }
 
+function checkDecodedWord(){
+	if (model.randomWordForTextLabel === model.userDecodedWordAttempt){
+		console.log("the same");
+		model.userDecodedWordResult = "YOU DID IT. TRY ANOTHER WORD!";
+	}
+	else{
+		console.log("different: your: " + model.userDecodedWordAttempt + ", correct: " + model.randomWordForTextLabel);
+	}
+}
+
+function shuffleWord(){
+	var wordString = (model.randomWordForTextLabel).split(""),
+        wordLength = wordString.length;
+
+    for(var i = wordLength - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = wordString[i];
+        wordString[i] = wordString[j].toLowerCase();
+        wordString[j] = tmp;
+    }
+
+    model.maskedRandomWordForTextLabel = wordString.join("");
+}
+
+function unmaskWord(){
+	model.maskedRandomWordForTextLabel = model.randomWordForTextLabel;
+}
+
+function playMaskedWord(){
+	var encodedString = "";
+	for (var i = 0, lenI = model.randomWordForTextLabel.length; i < lenI; i++) {
+		console.log(model.randomWordForTextLabel[i].toLowerCase() + " : " + codes[(model.randomWordForTextLabel[i]).toLowerCase()]);
+		encodedString = encodedString + codes[(model.randomWordForTextLabel[i]).toLowerCase()];
+		encodedString = encodedString + "?";
+	}
+
+	var codeString = encodedString;
+	for (var j = 0, lim = codeString.length; j < lim; j++) {
+			if (codeString[j] === "-") {
+				timer.setTimeout(playSlashMorseCode, model.sliderDelayCurrentValue * (j + 1));
+			} else if (codeString[j] === ".") {
+				timer.setTimeout(playDotMorseCode, model.sliderDelayCurrentValue * (j + 1));
+			}
+	}	
+
+	console.log(encodedString);
+}
+
 exports.onLoad = onLoad;
 exports.onListViewTap = onListViewTap;
 exports.onEncodeButtonTap = onEncodeButtonTap;
 exports.fetchRandomWordFromApi = fetchRandomWordFromApi;
+exports.checkDecodedWord = checkDecodedWord;
+exports.unmaskWord = unmaskWord;
+exports.playMaskedWord = playMaskedWord;
+
+	
