@@ -1,7 +1,7 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoad">
     <StackLayout id="menuContainer">
-            <TabView selectedIndexChanged="indexChange" id="tabNavigation">
-        <TabView.items>
+        <TabView selectedIndexChanged="indexChange" id="tabNavigation">
+            <TabView.items>
             <TabViewItem title="Morsify">
                 <TabViewItem.view>
                         <StackLayout class="morsifyStack">
@@ -62,8 +62,7 @@
                     </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
-        </TabView.items>
-    </TabView>
+            </TabView.items>
+        </TabView>
     </StackLayout>
-
 </Page>

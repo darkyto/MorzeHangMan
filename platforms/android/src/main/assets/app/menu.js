@@ -99,7 +99,7 @@ function onLoad(args) {
 function simulateDotLight() {
 
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
-
+	console.log("dot light");
     mainContainer.animate({
     	backgroundColor: new colorModule.Color("#FFFF00"),
     	duration: 100
@@ -113,6 +113,7 @@ function simulateDashLight() {
 
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
 
+	console.log("dash light");
     mainContainer.animate({
     	backgroundColor: new colorModule.Color("#FFFF00"),
     	duration: 300
@@ -129,17 +130,15 @@ function setBackOpacity() {
 }
 
 function onCreateLightTap(args) {
-	var page = args.object.page;
+	page = args.object.page;
 	var mainTab = viewModule.getViewById(page, "tabNavigation");
 	mainTab.opacity = 0.1;
 
 	var stringFromApp = applicationSettings.getString("morse-data");
 	for (var i = 0; i < stringFromApp.length; i++) {
 		if (stringFromApp[i] === "-") {
-			console.log("dash light");
 			timer.setTimeout(simulateDashLight, 600 * (i + 1));
 		} else if (stringFromApp[i] === ".") {
-			console.log("dot light");
 			timer.setTimeout(simulateDotLight, 600 * (i + 1));
 		}
 
@@ -147,7 +146,6 @@ function onCreateLightTap(args) {
 			timer.setTimeout(setBackOpacity, 600 * (i + 2));
 		}
 	}
-
 }
 
 function onSendFileViaMailTap() {
@@ -188,10 +186,7 @@ function onCreateFileTap() {
 	var resultOutput = decodeTextToMorse(textInput);
 
 	applicationSettings.setString("morse-data", resultOutput);
-	
-	// dialogs.action("File Successfully Saved!").then(function() {
- //  		console.log("Dialog closed!");
-	// });
+
 	dialogs.action({
 	    message: "File Successfully Saved!",
 	    cancelButtonText: "OK",
