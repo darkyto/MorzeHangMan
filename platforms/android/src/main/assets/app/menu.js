@@ -126,7 +126,10 @@ function simulateDashLight() {
 
 function setBackOpacity() {
 	var mainTab = viewModule.getViewById(page, "tabNavigation");
+	var mainContainer = viewModule.getViewById(page, "menuContainer");
+
 	mainTab.opacity = 1;
+	mainContainer.backgroundColor = new colorModule.Color("#FFFFFF");
 }
 
 function onCreateLightTap(args) {
@@ -180,6 +183,7 @@ function onSendFileViaMailTap() {
       }
   	});
 }
+
 
 function onCreateFileTap() {
 	var textInput = model.get("textToMorse");
