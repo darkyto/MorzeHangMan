@@ -3,32 +3,32 @@
         <TabView.items>
             <TabViewItem title="Morsify">
                 <TabViewItem.view>
-                    <StackLayout>
-                        <Label text="This will be the text to morse code section..." id="morsifyLabel" />
                         <StackLayout class="morsifyStack">
-                            
                             <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" >
-           
                                 <TextView text="{{ textToMorse }}" hint="enter text to morsify" editable="true" class="morsifyTextView" col="0" row="0" colSpan="3" rowSpan="2"  />
                                 <Button text="Encode Text" col="3" row="0" rowSpan="2" class="funcButton" tap="onEncodeButtonTap"/>
-
                                 <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
                                 <Button text="Decode Morse" col="3" row="2" rowSpan="2" tap="" class="funcButton"/>
-
                                 <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="" class="morsifyButton"/>
                                 <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="" class="morsifyButton"/>
                                 <Button text="Send Morse Code Mail" col="0" row="6" colSpan="4"  tap="" class="morsifyButton"/>
                             </GridLayout>
-
                         </StackLayout>
-                    </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
             <TabViewItem title="Quiz">
                 <TabViewItem.view>
-                    <StackLayout>
-                        <Label text="This will be quiz section..." id="quizLabel" />
-                    </StackLayout>
+                    <StackLayout class="quizStack">
+                            <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" >
+                                <TextView text = "{{ randomWordForTextLabel }}" hint="enter text to morsify" editable="true" class="fetchedWordTextView" col="0" row="0" colSpan="3" rowSpan="1"  />
+                                <Button text="GET!" col="3" row="0" rowSpan="1" class="btn" tap="fetchRandomWordFromApi"/>
+                                <!-- <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
+                                <Button text="Decode Morse" col="3" row="2" rowSpan="2" tap="" class="funcButton"/>
+                                <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="" class="morsifyButton"/>
+                                <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="" class="morsifyButton"/>
+                                <Button text="Send Morse Code Mail" col="0" row="6" colSpan="4"  tap="" class="morsifyButton"/> -->
+                            </GridLayout>
+                        </StackLayout>
                 </TabViewItem.view>
             </TabViewItem>
             <TabViewItem title="Settings">

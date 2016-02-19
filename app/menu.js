@@ -2,12 +2,12 @@
 /*jshint sub:true*/
 "use strict";
 
-//var view = require("ui/core/view");
 var sound = require("nativescript-sound");
 var observableModule = require("data/observable-array");
 var observableModel = require("data/observable");
 var timer = require("timer");
 var vibrator = require("nativescript-vibrate");
+var http = require("http");
 
 var _dot;
 var _slash;
@@ -31,11 +31,9 @@ function onLoad(args) {
 		"sliderVolumeMaxValue": 100,
 		"sliderVolumeCurrentValue": 70,
 		"textToMorse" : "SOS",
-		"morseToText" : "... --- ..."
+		"morseToText" : "... --- ...",
+		"randomWordForTextLabel" : "some random word"
 	});
-
-	//var _morseAlphabetLabel = view.getViewById(page, "morseAlphabetLabel");
-	//var _morseAlphabetListView = view.getViewById(page, "morseAlphabetListView");
 
 	generateMorseObservableArray();
 
@@ -272,6 +270,27 @@ function decodeTextToMorse(text) {
 	return result;
 }
 
+function fetchRandomWordFromApi(){
+	console.log('fetcher clicked!');
+
+    http.getJSON("http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function (r) {
+    	console.log("got it!");
+    	try{
+    		var result = JSON.stringify(r);
+    		var parsed = JSON.parse(result);
+    		//console.log(parsed[0]["word"]);
+    		model.randomWordForTextLabel = parsed[0]["word"];
+    	}
+    	catch (e){
+    		console.log(e.message);
+    	}
+	}, function (e) {
+    	console.log("encountered an error while fetching the word!");
+    	console.log(e);
+	});
+}
+
 exports.onLoad = onLoad;
 exports.onListViewTap = onListViewTap;
 exports.onEncodeButtonTap = onEncodeButtonTap;
+exports.fetchRandomWordFromApi = fetchRandomWordFromApi;
