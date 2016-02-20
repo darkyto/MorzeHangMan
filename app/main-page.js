@@ -1,5 +1,3 @@
-/* jshint node: true */
-/*jshint sub:true*/
 "use strict";
 
 var frameModule = require("ui/frame");

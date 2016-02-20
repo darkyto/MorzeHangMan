@@ -1,5 +1,3 @@
-/* jshint node: true */
-/*jshint sub:true*/
 "use strict";
 
 var observableModule = require("data/observable-array");
