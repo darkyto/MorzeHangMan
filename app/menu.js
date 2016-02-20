@@ -12,6 +12,7 @@ var http = require("http");
 var email = require("nativescript-email");
 var applicationSettings = require("application-settings");
 var dialogs = require("ui/dialogs");
+var toaster = require("nativescript-toast");
 //var tnsfx = require('nativescript-effects');
 //var gestures = require("ui/gestures");
 
@@ -95,9 +96,17 @@ function onLoad(args) {
 
 	generateMorseObservableArray();
 
+	showToast("Hello, do you want to play a game of morse hangman? If so go to the Quiz tab!");
+
 	model.set("myMorseItems", _morseCodeArray);
-	page.bindingContext = model;	
+	page.bindingContext = model;
 }
+
+function showToast(messageStr){
+	var toast = toaster.makeText(messageStr);
+	toast.show();
+}
+
 function simulateDotLight() {
 
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
@@ -308,11 +317,15 @@ function fetchRandomWordFromApi(){
     		model.randomWordForTextLabel = parsed[0]["word"];
     		shuffleWord();
     		model.userDecodedWordResult = "DECODED RESULT: DIFFERENT!";
+
+    		showToast("Successfully fetched a new word!");
     	}
     	catch (e){
+    		showToast("Error: unable to fetch a word!");
     		console.log(e.message);
     	}
 	}, function (e) {
+		showToast("Error: unable to fetch a word!");
     	console.log("encountered an error while fetching the word!");
     	console.log(e);
 	});
@@ -322,6 +335,7 @@ function checkDecodedWord(){
 	if (model.randomWordForTextLabel === model.userDecodedWordAttempt){
 		console.log("the same");
 		model.userDecodedWordResult = "YOU DID IT. TRY ANOTHER WORD!";
+		showToast("You win!");
 	}
 	else{
 		console.log("different: your: " + model.userDecodedWordAttempt + ", correct: " + model.randomWordForTextLabel);
@@ -344,9 +358,11 @@ function shuffleWord(){
 
 function unmaskWord(){
 	model.maskedRandomWordForTextLabel = model.randomWordForTextLabel;
+	showToast("Why do you cheat?");
 }
 
 function playMaskedWord(){
+	showToast("Morse audio stream started...");
 	var encodedString = "";
 	for (var i = 0, lenI = model.randomWordForTextLabel.length; i < lenI; i++) {
 		console.log(model.randomWordForTextLabel[i].toLowerCase() + " : " + codes[(model.randomWordForTextLabel[i]).toLowerCase()]);
