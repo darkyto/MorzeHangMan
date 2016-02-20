@@ -5,7 +5,7 @@
 var frameModule = require("ui/frame");
 var observableModule = require("data/observable");
 var viewModule = require("ui/core/view");
-var enums = require("ui/enums");
+//var enums = require("ui/enums");
 //var colorModule = require("color");
 
 // testing purposes

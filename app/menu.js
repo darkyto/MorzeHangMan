@@ -14,7 +14,7 @@ var http = require("http");
 var email = require("nativescript-email");
 var applicationSettings = require("application-settings");
 var dialogs = require("ui/dialogs");
-var tnsfx = require('nativescript-effects');
+//var tnsfx = require('nativescript-effects');
 
 var page;
 var _dot;
@@ -175,6 +175,9 @@ function onSendFileViaMailTap() {
 		    body: stringFromApp,
 		    to: [receiver]
 		}).then(function(r) {
+			if (r){
+				//do the stuff with the response
+			}
 			dialogs.alert("Mail send").then(function() {
 			    console.log("Dialog closed!");
 			});
