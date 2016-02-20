@@ -13,6 +13,7 @@ var email = require("nativescript-email");
 var applicationSettings = require("application-settings");
 var dialogs = require("ui/dialogs");
 var toaster = require("nativescript-toast");
+var connectivity = require("connectivity");
 //var tnsfx = require('nativescript-effects');
 //var gestures = require("ui/gestures");
 
@@ -62,6 +63,8 @@ codes["8"] = '---..';
 codes["9"] = '----.';
 
 function onLoad(args) {
+	startConnectivityMonitor();
+
 	page = args.object;
 	page.addCssFile("~/styles/menu.css");
 
@@ -105,6 +108,25 @@ function onLoad(args) {
 function showToast(messageStr){
 	var toast = toaster.makeText(messageStr);
 	toast.show();
+}
+
+function startConnectivityMonitor(){
+	console.log("ConnectivityMonitor started.");
+	connectivity.startMonitoring(function onConnectionTypeChanged(newConnectionType) {
+	    switch (newConnectionType) {
+	        case connectivity.connectionType.none:
+	            showToast("Connection type changed to none.");
+	            break;
+	        case connectivity.connectionType.wifi:
+	            showToast("Connection type changed to WiFi.");
+	            break;
+	        case connectivity.connectionType.mobile:
+	            showToast("Connection type changed to mobile.");
+	            break;
+	    }
+	});
+	//TODO: Chech if you can stop this for continuous monitoring while the app is on!
+	connectivity.stopMonitoring();
 }
 
 function simulateDotLight() {
