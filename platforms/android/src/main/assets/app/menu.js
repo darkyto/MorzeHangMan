@@ -189,7 +189,6 @@ function onSendFileViaMailTap() {
   	});
 }
 
-
 function onCreateFileTap() {
 	var textInput = model.get("textToMorse");
 	var resultOutput = decodeTextToMorse(textInput);
@@ -306,7 +305,6 @@ function fetchRandomWordFromApi(){
     	try{
     		var result = JSON.stringify(r);
     		var parsed = JSON.parse(result);
-    		//console.log(parsed[0]["word"]);
     		model.randomWordForTextLabel = parsed[0]["word"];
     		shuffleWord();
     		model.userDecodedWordResult = "DECODED RESULT: DIFFERENT!";

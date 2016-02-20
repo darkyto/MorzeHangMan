@@ -3,8 +3,6 @@
 var frameModule = require("ui/frame");
 var observableModule = require("data/observable");
 var viewModule = require("ui/core/view");
-//var enums = require("ui/enums");
-//var colorModule = require("color");
 
 // testing purposes
 var flashlight = require("nativescript-flashlight"); 
@@ -12,16 +10,10 @@ var viewModel = new observableModule.Observable();
 
 var topmost;
 
-//var morseAlhabet = ["A", "B", "C"];
-
 function pageLoaded(args) {
     var page = args.object;
 	page.bindingContext = viewModel;
     topmost = frameModule.topmost();
-
-    // var model = new observableModule.Observable({
-    //     "morseAlhabet": ["A", "B", "C"],
-    // });
 
     // this will animate the logo on initial load
     var img = viewModule.getViewById(page, "logoImage");
@@ -32,7 +24,6 @@ function pageLoaded(args) {
     	rotate: 360,
     	duration: 3000
     });
-
 
     var labelOne = viewModule.getViewById(page, "splashLabelOne");
     var labelTwo = viewModule.getViewById(page, "splashLabelTwo");
