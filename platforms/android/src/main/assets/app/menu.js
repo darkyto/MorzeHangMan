@@ -88,7 +88,8 @@ function onLoad(args) {
 		"randomWordForTextLabel" : "obduscated",
 		"maskedRandomWordForTextLabel" : "obfuscated",
 		"userDecodedWordAttempt" : "",
-		"userDecodedWordResult" : "DECODED RESULT: DIFFERENT!"
+		"userDecodedWordResult" : "DECODED RESULT: DIFFERENT!",
+		"lightCodeColor" : "#FFFF00"
 	});
 
 	generateMorseObservableArray();
@@ -101,7 +102,7 @@ function simulateDotLight() {
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
 	console.log("dot light");
     mainContainer.animate({
-    	backgroundColor: new colorModule.Color("#FFFF00"),
+    	backgroundColor: new colorModule.Color(model.lightCodeColor),
     	duration: 100
     }).then(function() { return mainContainer.animate({
     	backgroundColor: new colorModule.Color("#000000"),
@@ -115,7 +116,7 @@ function simulateDashLight() {
 
 	console.log("dash light");
     mainContainer.animate({
-    	backgroundColor: new colorModule.Color("#FFFF00"),
+    	backgroundColor: new colorModule.Color(model.lightCodeColor),
     	duration: 300
     }).then(function() { return mainContainer.animate({
     	backgroundColor: new colorModule.Color("#000000"),
