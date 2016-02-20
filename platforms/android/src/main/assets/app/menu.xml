@@ -22,7 +22,7 @@
                     <StackLayout class="quizStack">
                             <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" >
                                 <TextView text = "{{ maskedRandomWordForTextLabel }}" hint="enter text to morsify" editable="false" class="fetchedWordTextView" col="0" row="0" colSpan="3" rowSpan="1" />
-                                <Button text="FETCH!" col="3" row="0" rowSpan="1" class="btn" tap="fetchRandomWordFromApi" />
+                                <Button text="FETCH" col="3" row="0" rowSpan="1" class="btn" tap="fetchRandomWordFromApi" />
                                 <TextView text = "{{ userDecodedWordAttempt }}" hint="decoded morse word..." editable="true" class="decodedWordTextView" col="0" row="1" colSpan="3" rowSpan="1" />
                                 <Button text="DECODE" col="3" row="1" rowSpan="1" class="btn" tap="checkDecodedWord"/>
                                 <Button text="UNMASK WORD" col="0" row="2" rowSpan="1" colspan="2" class="btn" tap="unmaskWord"/>
@@ -38,11 +38,9 @@
                         <Label text="Delay between codes" col="0" row="0" />
                         <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderDelayMinValue }}" maxValue="{{ sliderDelayMaxValue }}" value="{{ sliderDelayCurrentValue }}" col="1" row="0" />
                         <Label text="{{ sliderDelayCurrentValue }}" col="2" row="0" />
-
                         <Label text="Morse code volume" col="0" row="1" />
                         <Slider id="morseCodeVolumeSlider" propertyChange="changeSliderValues" minValue="{{ sliderVolumeMinValue }}" maxValue="{{ sliderVolumeMaxValue }}" value="{{ sliderVolumeCurrentValue }}" col="1" row="1" />
                         <Label text="{{ sliderVolumeCurrentValue }}" col="2" row="1" />
-
                         <Label text="Light code color" col="0" row="2" />
                         <TextView text="{{ lightCodeColor }}" hint="#COLOR" editable="true" class="colorTextView" col="1" row="2" colSpan="3" />
                     </GridLayout>

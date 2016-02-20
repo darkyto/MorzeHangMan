@@ -15,6 +15,7 @@ var email = require("nativescript-email");
 var applicationSettings = require("application-settings");
 var dialogs = require("ui/dialogs");
 //var tnsfx = require('nativescript-effects');
+//var gestures = require("ui/gestures");
 
 var page;
 var _dot;
@@ -65,7 +66,8 @@ function onLoad(args) {
 	page = args.object;
 	page.addCssFile("~/styles/menu.css");
 
-	var myTab = page.getViewById('tabNavigation');		
+	var myTab = page.getViewById('tabNavigation');
+
 	myTab.scaleX = 0.1;
     myTab.scaleY = 0.1;
     myTab.animate({
@@ -73,8 +75,8 @@ function onLoad(args) {
     	duration: 1000
     });	
 
-	_dot = sound.create("~/res/morse-dot.mp3");
 	_slash = sound.create("~/res/morse-slash.mp3");
+	_dot = sound.create("~/res/morse-dot.mp3");
 
 	model = new observableModel.Observable({
 		"sliderDelayMinValue": morseDelay,
@@ -89,7 +91,8 @@ function onLoad(args) {
 		"maskedRandomWordForTextLabel" : "obfuscated",
 		"userDecodedWordAttempt" : "",
 		"userDecodedWordResult" : "DECODED RESULT: DIFFERENT!",
-		"lightCodeColor" : "#FFFF00"
+		"lightCodeColor" : "#FFFF00",
+		"lightCodeFadeTo" : "#000000"
 	});
 
 	generateMorseObservableArray();
@@ -105,7 +108,7 @@ function simulateDotLight() {
     	backgroundColor: new colorModule.Color(model.lightCodeColor),
     	duration: 100
     }).then(function() { return mainContainer.animate({
-    	backgroundColor: new colorModule.Color("#000000"),
+    	backgroundColor: new colorModule.Color(model.lightCodeFadeTo),
     	duration: 100
     	});
 	});	
@@ -119,7 +122,7 @@ function simulateDashLight() {
     	backgroundColor: new colorModule.Color(model.lightCodeColor),
     	duration: 300
     }).then(function() { return mainContainer.animate({
-    	backgroundColor: new colorModule.Color("#000000"),
+    	backgroundColor: new colorModule.Color(model.lightCodeFadeTo),
     	duration: 300
     	});
 	});	
