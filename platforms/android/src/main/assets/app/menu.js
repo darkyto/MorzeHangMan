@@ -15,7 +15,7 @@ var dialogs = require("ui/dialogs");
 var toaster = require("nativescript-toast");
 var connectivity = require("connectivity");
 //var tnsfx = require('nativescript-effects');
-//var gestures = require("ui/gestures");
+var gestures = require("ui/gestures");
 
 var page;
 var _dot;
@@ -101,6 +101,16 @@ function onLoad(args) {
 
 	showToast("Hello, do you want to play a game of morse hangman? If so go to the Quiz tab!");
 
+	var riddlerView = page.getViewById("maskyRiddler");
+	riddlerView.on(gestures.GestureTypes.longPress, function (args) {
+    	unmaskWord();
+	});
+
+	var playTheFetchedWordButton = page.getViewById("playTheFetchedWordBtn");
+	riddlerView.on(gestures.GestureTypes.swipe, function (args) {
+    	playMaskedWord();
+	});
+
 	model.set("myMorseItems", _morseCodeArray);
 	page.bindingContext = model;
 }
@@ -143,7 +153,6 @@ function simulateDotLight() {
 	});	
 }
 function simulateDashLight() {
-
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
 
 	console.log("dash light");
