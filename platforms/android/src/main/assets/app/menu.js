@@ -393,7 +393,6 @@ function checkDecodedWord(){
 		}
 		showToast("Try again ... " + left + " tries left...");
 	}
-
 }
 
 function shuffleWord(){
