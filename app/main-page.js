@@ -9,20 +9,30 @@ var flashlight = require("nativescript-flashlight");
 var viewModel = new observableModule.Observable();
 
 var topmost;
+var page;
 
 function pageLoaded(args) {
-    var page = args.object;
+    page = args.object;
 	page.bindingContext = viewModel;
     topmost = frameModule.topmost();
+
+    animateSplashScreen();  
+}
+
+function navToMenu() {
+	topmost.navigate("./menu");
+}
+
+function animateSplashScreen() {
 
     // this will animate the logo on initial load
     var img = viewModule.getViewById(page, "logoImage");
     img.scaleX = 0.1;
     img.scaleY = 0.1;
     img.animate({
-    	scale: { x: 1, y: 1},
-    	rotate: 360,
-    	duration: 3000
+        scale: { x: 1, y: 1},
+        rotate: 360,
+        duration: 3000
     });
 
     var labelOne = viewModule.getViewById(page, "splashLabelOne");
@@ -44,11 +54,7 @@ function pageLoaded(args) {
         .then(function () { return labelTwo.animate({ translate: { x: 0, y: 0 }, duration:300  }); })
         .then(function () {
         console.log("Animation finished");
-    });    
-}
-
-function navToMenu() {
-	topmost.navigate("./menu");
+    });  
 }
 
 viewModel.set("flashlightState", "Turn on");
