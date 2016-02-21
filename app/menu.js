@@ -94,7 +94,8 @@ function onLoad(args) {
 		"userDecodedWordAttempt" : "",
 		"userDecodedWordResult" : "DECODED RESULT: DIFFERENT!",
 		"lightCodeColor" : "#FFFF00",
-		"lightCodeFadeTo" : "#000000"
+		"lightCodeFadeTo" : "#000000",
+		"decodeAttempts" : 0
 	});
 
 	generateMorseObservableArray();
@@ -379,8 +380,20 @@ function checkDecodedWord(){
 		showToast("You win!");
 	}
 	else{
+		if (model.decodeAttempts > 4) {
+			showToast("You lost, but you can keep on guessing...");
+		}
+
+		model.decodeAttempts += 1;
+
 		console.log("different: your: " + model.userDecodedWordAttempt + ", correct: " + model.randomWordForTextLabel);
+		var left = 5 - model.decodeAttempts;
+		if (left < 0){
+			left = 0;
+		}
+		showToast("Try again ... " + left + " tries left...");
 	}
+
 }
 
 function shuffleWord(){
