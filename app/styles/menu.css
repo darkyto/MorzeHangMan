@@ -75,11 +75,10 @@
 
 .morsifyStack {
 	vertical-align: center;
-	background-color: white;
+	background-color: #F2F3E4;
 	border-width: 4;
 	border-color: #CCC;
 	margin: 10;
-	background-image: url("~/res/background-pattern.png");
 }
 
 .morsifyButton {
