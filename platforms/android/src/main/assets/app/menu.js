@@ -106,6 +106,16 @@ function onLoad(args) {
     	unmaskWord();
 	});
 
+	var riddlerView = page.getViewById("maskyRiddler");
+	riddlerView.on(gestures.GestureTypes.doubleTap, function () {
+    	unmaskWord();
+	});
+
+	var riddlerView = page.getViewById("maskyRiddler");
+	riddlerView.on(gestures.GestureTypes.ta[, function () {
+    	unmaskWord();
+	});
+
 	var playTheFetchedWordButton = page.getViewById("playTheFetchedWordBtn");
 	playTheFetchedWordButton.on(gestures.GestureTypes.swipe, function () {
     	playMaskedWord();
