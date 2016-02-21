@@ -112,7 +112,7 @@ function onLoad(args) {
 	});
 
 	var riddlerView = page.getViewById("maskyRiddler");
-	riddlerView.on(gestures.GestureTypes.ta[, function () {
+	riddlerView.on(gestures.GestureTypes.tap, function () {
     	unmaskWord();
 	});
 
