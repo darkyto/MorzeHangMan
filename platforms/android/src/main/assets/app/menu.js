@@ -14,7 +14,7 @@ var applicationSettings = require("application-settings");
 var dialogs = require("ui/dialogs");
 var toaster = require("nativescript-toast");
 var connectivity = require("connectivity");
-//var tnsfx = require('nativescript-effects');
+var geolocation = require("nativescript-geolocation");
 var gestures = require("ui/gestures");
 
 var page;
@@ -413,6 +413,22 @@ function playMaskedWord(){
 	console.log(encodedString);
 }
 
+function getMeMyLocation(){
+	console.log("getting the location if possible ...");
+	if (!geolocation.isEnabled()) {
+        geolocation.enableLocationRequest();
+    }
+
+    var location = geolocation.getCurrentLocation({desiredAccuracy: 3, updateDistance: 10, maximumAge: 20000, timeout: 20000}).
+	then(function(loc) {
+		if (loc) {
+			console.log(loc);
+		}
+	}, function(e){
+		console.log("Error: " + e.message);
+	});
+}
+
 exports.onLoad = onLoad;
 exports.onListViewTap = onListViewTap;
 exports.onEncodeButtonTap = onEncodeButtonTap;
@@ -423,3 +439,4 @@ exports.playMaskedWord = playMaskedWord;
 exports.onCreateFileTap = onCreateFileTap;
 exports.onSendFileViaMailTap = onSendFileViaMailTap;
 exports.onCreateLightTap = onCreateLightTap;
+exports.getMeMyLocation = getMeMyLocation;
