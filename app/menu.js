@@ -102,12 +102,12 @@ function onLoad(args) {
 	showToast("Hello, do you want to play a game of morse hangman? If so go to the Quiz tab!");
 
 	var riddlerView = page.getViewById("maskyRiddler");
-	riddlerView.on(gestures.GestureTypes.longPress, function (args) {
+	riddlerView.on(gestures.GestureTypes.longPress, function () {
     	unmaskWord();
 	});
 
 	var playTheFetchedWordButton = page.getViewById("playTheFetchedWordBtn");
-	riddlerView.on(gestures.GestureTypes.swipe, function (args) {
+	playTheFetchedWordButton.on(gestures.GestureTypes.swipe, function () {
     	playMaskedWord();
 	});
 
