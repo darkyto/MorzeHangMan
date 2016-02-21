@@ -89,6 +89,30 @@
 	height: 40;
 }
 
+.morsifyLightHouse {
+	background-image: url("~/res/lighthouse-icon.png");
+	background-repeat: no-repeat;
+	background-position: 90% 50%;
+	background-size: 80 60;
+	background-blend-mode: color-dodge;
+}
+
+.morsifySaveHouse {
+	background-image: url("~/res/save-icon.png");
+	background-repeat: no-repeat;
+	background-position: 90% 50%;
+	background-size: 80 60;
+	background-blend-mode: color-dodge;
+}
+
+.morsifyEmail {
+	background-image: url("~/res/email-icon.png");
+	background-repeat: no-repeat;
+	background-position: 90% 50%;
+	background-size: 80 60;
+	background-blend-mode: color-dodge;
+}
+
 .funcButton {
 	margin: 5;
 	border-width: 2;

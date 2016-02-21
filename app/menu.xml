@@ -10,9 +10,9 @@
                             <Button text="ENC" col="3" row="0" rowSpan="2" class="funcButton" tap="onEncodeButtonTap"/>
                             <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
                             <!-- <Button text="DEC" col="3" row="2" rowSpan="2" tap="" class="funcButton" tap="onDecodeButtonTap"/> -->
-                            <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="onCreateLightTap" class="morsifyButton"/>
-                            <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="onCreateFileTap" class="morsifyButton"/>
-                            <Button text="Send Morse Code File via Email" col="0" row="6" colSpan="4"  tap="onSendFileViaMailTap" class="morsifyButton"/>
+                            <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="onCreateLightTap" class="morsifyButton morsifyLightHouse"/>
+                            <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="onCreateFileTap" class="morsifyButton morsifySaveHouse"/>
+                            <Button text="Send Morse Code File via Email" col="0" row="6" colSpan="4"  tap="onSendFileViaMailTap" class="morsifyButton morsifyEmail"/>
                         </GridLayout>
                     </StackLayout>
                 </TabViewItem.view>
