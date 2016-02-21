@@ -7,7 +7,7 @@
                     <StackLayout class="morsifyStack">
                         <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" >
                             <TextView text="{{ textToMorse }}" hint="enter text to morsify" editable="true" class="morsifyTextView" col="0" row="0" colSpan="3" rowSpan="2" />
-                            <Button text="ENC" col="3" row="0" rowSpan="2" class="funcButton" tap="onEncodeButtonTap"/>
+                            <Button text="ENC" col="3" row="0" rowSpan="2" class="morsifyEncodeButton" tap="onEncodeButtonTap"/>
                             <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
                             <!-- <Button text="DEC" col="3" row="2" rowSpan="2" tap="" class="funcButton" tap="onDecodeButtonTap"/> -->
                             <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="onCreateLightTap" class="morsifyButton morsifyLightHouse"/>
