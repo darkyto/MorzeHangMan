@@ -2,6 +2,13 @@
 	background-color: white;
 }
 
+.menuMainImage {
+    height: auto; 
+    width: auto; 
+    max-width: 100; 
+    max-height: 100;
+}
+
 .slider {
 	margin: 20;
 }
@@ -57,7 +64,7 @@
 .alphabetLetterLabel {
     text-align : center;
     text-transform: uppercase;
-    font-size: 26;
+    font-size: 20;
     margin: 10;
 }
 

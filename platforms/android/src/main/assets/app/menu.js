@@ -95,6 +95,7 @@ function onLoad(args) {
 		"userDecodedWordResult" : "DECODED RESULT: DIFFERENT!",
 		"lightCodeColor" : "#FFFF00",
 		"lightCodeFadeTo" : "#000000",
+		"whiteColor" : "FFFFFF",
 		"decodeAttempts" : 0
 	});
 
@@ -141,8 +142,8 @@ function startConnectivityMonitor(){
 }
 
 function simulateDotLight() {
-
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
+
 	console.log("dot light");
     mainContainer.animate({
     	backgroundColor: new colorModule.Color(model.lightCodeColor),
@@ -159,10 +160,10 @@ function simulateDashLight() {
 	console.log("dash light");
     mainContainer.animate({
     	backgroundColor: new colorModule.Color(model.lightCodeColor),
-    	duration: 300
+    	duration: 400
     }).then(function() { return mainContainer.animate({
     	backgroundColor: new colorModule.Color(model.lightCodeFadeTo),
-    	duration: 300
+    	duration: 400
     	});
 	});	
 }
@@ -178,18 +179,17 @@ function setBackOpacity() {
 function onCreateLightTap(args) {
 	page = args.object.page;
 	var mainTab = viewModule.getViewById(page, "tabNavigation");
-	mainTab.opacity = 0.1;
+	mainTab.opacity = 0;
 
 	var stringFromApp = applicationSettings.getString("morse-data");
 	for (var i = 0; i < stringFromApp.length; i++) {
 		if (stringFromApp[i] === "-") {
-			timer.setTimeout(simulateDashLight, 600 * (i + 1));
+			timer.setTimeout(simulateDashLight, 800 * (i + 1));
 		} else if (stringFromApp[i] === ".") {
-			timer.setTimeout(simulateDotLight, 600 * (i + 1));
-		}
-
+			timer.setTimeout(simulateDotLight, 800 * (i + 1));
+		} 
 		if (i == stringFromApp.length - 1) {
-			timer.setTimeout(setBackOpacity, 600 * (i + 2));
+			timer.setTimeout(setBackOpacity, 800 * (i + 2));
 		}
 	}
 }
