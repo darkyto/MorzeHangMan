@@ -185,7 +185,9 @@ function onCreateLightTap(args) {
 	var mainTab = viewModule.getViewById(page, "tabNavigation");
 	mainTab.opacity = 0;
 
-	var stringFromApp = applicationSettings.getString("morse-data");
+	// var stringFromApp = applicationSettings.getString("morse-data");
+	var stringFromApp = model.morseToText;
+	console.log(stringFromApp);
 	for (var i = 0; i < stringFromApp.length; i++) {
 		if (stringFromApp[i] === "-") {
 			timer.setTimeout(simulateDashLight, 800 * (i + 1));

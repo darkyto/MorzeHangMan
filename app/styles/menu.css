@@ -76,6 +76,12 @@
 	padding-left: 20;
 }
 
+.alphabetLetterInfo {
+	text-align : center;
+    font-size: 14;
+    margin: 10;
+}
+
 .alphabetLetterLabel {
     text-align : center;
     text-transform: uppercase;

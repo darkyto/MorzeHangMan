@@ -67,7 +67,7 @@
                                 <Slider id="morseCodeVolumeSlider" propertyChange="changeSliderValues" minValue="{{ sliderVolumeMinValue }}" maxValue="{{ sliderVolumeMaxValue }}" value="{{ sliderVolumeCurrentValue }}" col="1" row="1" class="slider" />
                                 <Label text="{{ sliderVolumeCurrentValue }}" col="2" row="1"  class="slidersLabel" />
                                 <Label text="Set DOT Color" col="0" row="2"  class="slidersLabel" />
-                                <TextView text="{{ lightCodeColorDot }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="2" colSpan="3" />
+                                <TextView text="{{ lightCodeColorDot }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="2" colSpan="3"/>
                                 <Label text="Set DASH Color" col="0" row="3"  class="slidersLabel" />
                                 <TextView text="{{ lightCodeColorDash }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="3" colSpan="3" />
                                 <Button text="get morisifying location" col="0" row="4" rowSpan="1" colspan="3" class="sliderButton" tap="getMeMyLocation" id="boomerMan" />
@@ -78,7 +78,7 @@
                 <TabViewItem title="Alphabet">
                     <TabViewItem.view>
                         <StackLayout class="morsifyStack quizGrid">
-                            <Label text="Alphabet to Morse code with sound generator" id="alphabetLetterLabel" />
+                            <Label text="Alphanumerics to Morse code" id="alphabetLetterLabel"  class="alphabetLetterInfo" />
                             <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
                                 <ListView.itemTemplate >
                                     <GridLayout columns="*, *, auto" class="alphabetGrid">
