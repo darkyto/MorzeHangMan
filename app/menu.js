@@ -93,7 +93,8 @@ function onLoad(args) {
 		"maskedRandomWordForTextLabel" : "obfuscated",
 		"userDecodedWordAttempt" : "",
 		"userDecodedWordResult" : "DECODED RESULT: DIFFERENT!",
-		"lightCodeColor" : "#FFFF00",
+		"lightCodeColorDash" : "#FFFF00",
+		"lightCodeColorDot" : "#F50101",
 		"lightCodeFadeTo" : "#000000",
 		"whiteColor" : "FFFFFF",
 		"decodeAttempts" : 0
@@ -146,7 +147,7 @@ function simulateDotLight() {
 
 	console.log("dot light");
     mainContainer.animate({
-    	backgroundColor: new colorModule.Color(model.lightCodeColor),
+    	backgroundColor: new colorModule.Color(model.lightCodeColorDot),
     	duration: 100
     }).then(function() { return mainContainer.animate({
     	backgroundColor: new colorModule.Color(model.lightCodeFadeTo),
@@ -159,11 +160,11 @@ function simulateDashLight() {
 
 	console.log("dash light");
     mainContainer.animate({
-    	backgroundColor: new colorModule.Color(model.lightCodeColor),
-    	duration: 400
+    	backgroundColor: new colorModule.Color(model.lightCodeColorDash),
+    	duration: 300
     }).then(function() { return mainContainer.animate({
     	backgroundColor: new colorModule.Color(model.lightCodeFadeTo),
-    	duration: 400
+    	duration: 300
     	});
 	});	
 }
@@ -173,7 +174,7 @@ function setBackOpacity() {
 	var mainContainer = viewModule.getViewById(page, "menuContainer");
 
 	mainTab.opacity = 1;
-	mainContainer.backgroundColor = new colorModule.Color("#FFFFFF");
+	mainContainer.backgroundColor = new colorModule.Color("#F2F3E4");
 }
 
 function onCreateLightTap(args) {
