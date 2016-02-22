@@ -3,71 +3,94 @@
         <Image src="~/res/morse-code.png" class="menuMainImage"/>
         <TabView selectedIndexChanged="indexChange" id="tabNavigation">
             <TabView.items>
-            <TabViewItem title="Morsify">
-                <TabViewItem.view>
-                    <StackLayout class="morsifyStack">
-                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" class="quizGrid">
-                            <TextView text="{{ textToMorse }}" hint="enter text to morsify" editable="true" class="morsifyTextView" col="0" row="0" colSpan="3" rowSpan="2" />
-                            <Button text="ENC" col="3" row="0" rowSpan="2" class="morsifyEncodeButton" tap="onEncodeButtonTap"/>
-                            <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
-                            <!-- <Button text="DEC" col="3" row="2" rowSpan="2" tap="" class="funcButton" tap="onDecodeButtonTap"/> -->
-                            <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="onCreateLightTap" class="morsifyButton morsifyLightHouse"/>
-                            <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="onCreateFileTap" class="morsifyButton morsifySaveHouse"/>
-                            <Button text="Send Morse Code File via Email" col="0" row="6" colSpan="4"  tap="onSendFileViaMailTap" class="morsifyButton morsifyEmail"/>
-                        </GridLayout>
-                    </StackLayout>
-                </TabViewItem.view>
-            </TabViewItem>
-            <TabViewItem title="Quiz">
-                <TabViewItem.view>
-                    <StackLayout class="morsifyStack">
-                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" class="quizGrid">
-                            <TextView text = "{{ maskedRandomWordForTextLabel }}" hint="enter text to morsify" editable="false" class="quizTextView" col="0" row="0" colSpan="3" rowSpan="1" id="maskyRiddler"/>
-                            <Button text="FETCH" col="3" row="0" rowSpan="1" class="quizButton" tap="fetchRandomWordFromApi" />
-                            <TextView text = "{{ userDecodedWordAttempt }}" hint="decoded morse word..." editable="true" class="quizTextView" col="0" row="1" colSpan="3" rowSpan="1" />
-                            <Button text="DECODE" col="3" row="1" rowSpan="1" class="quizButton" tap="checkDecodedWord"/>
-                            <Button text="UNMASK WORD" col="0" row="2" rowSpan="1" colspan="2" class="quizButton" tap="unmaskWord"/>
-                            <Button text="PLAY WORD" col="2" row="2" rowSpan="1" colspan="2" class="quizButton" tap="playMaskedWord" id="playTheFetchedWordBtn"/>
-                            <TextView text="{{ userDecodedWordResult }}" editable="false" class="quizTextView" col="0" row="4" colSpan="4" rowSpan="1" />
+                <TabViewItem title="Morsify">
+                    <TabViewItem.view>
+                        <StackLayout class="morsifyStack">
+                            <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" class="quizGrid">
+                                <TextView text="{{ textToMorse }}" hint="enter text to morsify" editable="true" class="morsifyTextView" col="0" row="0" colSpan="3" rowSpan="2" />
+                                <Button text="ENC" col="3" row="0" rowSpan="2" class="morsifyEncodeButton" tap="onEncodeButtonTap"/>
+                                <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
+                                <!-- <Button text="DEC" col="3" row="2" rowSpan="2" tap="" class="funcButton" tap="onDecodeButtonTap"/> -->
+                                <Button text="Generate Light Morse Code" col="0" row="4" colSpan="4" tap="onCreateLightTap" class="morsifyButton morsifyLightHouse"/>
+                                <Button text="Create File with Morse Code" col="0" row="5" colSpan="4"  tap="onCreateFileTap" class="morsifyButton morsifySaveHouse"/>
+                                <Button text="Send Morse Code File via Email" col="0" row="6" colSpan="4"  tap="onSendFileViaMailTap" class="morsifyButton morsifyEmail"/>
                             </GridLayout>
                         </StackLayout>
-                </TabViewItem.view>
-            </TabViewItem>
-            <TabViewItem title="Settings">
-                <TabViewItem.view>
-                    <StackLayout class="morsifyStack">
-                        <GridLayout columns="auto, 2*, 1*" rows="auto, auto, auto, auto, auto" class="sliderGrid" >
-                            <Label text="Delay between codes" col="0" row="0" class="slidersLabel" />
-                            <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderDelayMinValue }}" maxValue="{{ sliderDelayMaxValue }}" value="{{ sliderDelayCurrentValue }}" col="1" row="0" class="slider" />
-                            <Label text="{{ sliderDelayCurrentValue }}" col="2" row="0" class="slidersLabel" />
-                            <Label text="Morse code volume" col="0" row="1" class="slidersLabel" />
-                            <Slider id="morseCodeVolumeSlider" propertyChange="changeSliderValues" minValue="{{ sliderVolumeMinValue }}" maxValue="{{ sliderVolumeMaxValue }}" value="{{ sliderVolumeCurrentValue }}" col="1" row="1" class="slider" />
-                            <Label text="{{ sliderVolumeCurrentValue }}" col="2" row="1"  class="slidersLabel" />
-                            <Label text="Set DOT Color" col="0" row="2"  class="slidersLabel" />
-                            <TextView text="{{ lightCodeColorDot }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="2" colSpan="3" />
-                            <Label text="Set DASH Color" col="0" row="3"  class="slidersLabel" />
-                            <TextView text="{{ lightCodeColorDash }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="3" colSpan="3" />
-                            <Button text="get morisifying location" col="0" row="4" rowSpan="1" colspan="3" class="sliderButton" tap="getMeMyLocation" id="boomerMan" />
-                        </GridLayout>
-                    </StackLayout> 
-                </TabViewItem.view>
-            </TabViewItem>
-            <TabViewItem title="Alphabet">
-                <TabViewItem.view>
-                    <StackLayout class="morsifyStack quizGrid">
-                        <Label text="Alphabet to Morse code with sound generator" id="alphabetLetterLabel" />
-                        <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
-                            <ListView.itemTemplate >
-                                <GridLayout columns="*, *, auto" class="alphabetGrid">
-                                   <Label text="{{ letter }}" col="0" textWrap="true" class="alphabetLetterLabel" />
-                                   <Label text="{{ code }}" col="1" textWrap="true" class="alphabetLetterLabel" />
-                                   <Image src="~/res/play_button.png" col="2" class="alphabetPlayButton" id="playImage" stretch="aspectFit"/>
-                                </GridLayout>
-                            </ListView.itemTemplate>
-                        </ListView>
-                    </StackLayout>
-                </TabViewItem.view>
-            </TabViewItem>
+                    </TabViewItem.view>
+                </TabViewItem>
+                <TabViewItem title="Games">
+                    <TabViewItem.view>
+                        <TabView id="tabViewContainer">
+                            <TabView.items>
+                              <TabViewItem title="Decode Game">
+                                <TabViewItem.view>
+                                  <StackLayout class="morsifyStack">
+                                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" class="quizGrid">
+                                            <TextView text = "{{ maskedRandomWordForTextLabel }}" hint="enter text to morsify" editable="false" class="quizTextView" col="0" row="0" colSpan="3" rowSpan="1" id="maskyRiddler"/>
+                                            <Button text="FETCH" col="3" row="0" rowSpan="1" class="quizButton" tap="fetchRandomWordFromApi" />
+                                            <TextView text = "{{ userDecodedWordAttempt }}" hint="decoded morse word..." editable="true" class="quizTextView" col="0" row="1" colSpan="3" rowSpan="1" />
+                                            <Button text="DECODE" col="3" row="1" rowSpan="1" class="quizButton" tap="checkDecodedWord"/>
+                                            <Button text="UNMASK WORD" col="0" row="2" rowSpan="1" colspan="2" class="quizButton" tap="unmaskWord"/>
+                                            <Button text="PLAY WORD" col="2" row="2" rowSpan="1" colspan="2" class="quizButton" tap="playMaskedWord" id="playTheFetchedWordBtn"/>
+                                            <TextView text="{{ userDecodedWordResult }}" editable="false" class="quizTextView" col="0" row="4" colSpan="4" rowSpan="1" />
+                                        </GridLayout>
+                                    </StackLayout>
+                                </TabViewItem.view>
+                              </TabViewItem>
+                              <TabViewItem title="Morse Game">
+                                <TabViewItem.view>
+                                  <StackLayout class="morsifyStack">
+                                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" class="quizGrid">
+                                            <TextView text = "{{ morseRandomWord }}" editable="false" class="quizTextView" col="0" row="0" colSpan="3" rowSpan="1" id="maskyRiddler"/>
+                                            <Button text="New Morse Word" col="3" row="0" rowSpan="1" class="quizButton" tap="fetchRandomMorse" />
+                                            <TextView text = "{{ userDecodedMorse }}" editable="true" class="quizTextView" col="0" row="1" colSpan="3" rowSpan="1" />
+                                            <Button text="DECODE" col="3" row="1" rowSpan="1" class="quizButton" tap="checkEncodedMorse" />
+                                            <TextView text="{{ userDecodedMorseResult }}" editable="false" class="quizTextView" col="0" row="4" colSpan="4" rowSpan="1" />
+                                        </GridLayout>
+                                    </StackLayout>
+                                </TabViewItem.view>
+                              </TabViewItem>
+                            </TabView.items>
+                        </TabView>
+                        
+                        
+                    </TabViewItem.view>
+                </TabViewItem>
+                <TabViewItem title="Settings">
+                    <TabViewItem.view>
+                        <StackLayout class="morsifyStack">
+                            <GridLayout columns="auto, 2*, 1*" rows="auto, auto, auto, auto, auto" class="sliderGrid" >
+                                <Label text="Delay between codes" col="0" row="0" class="slidersLabel" />
+                                <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderDelayMinValue }}" maxValue="{{ sliderDelayMaxValue }}" value="{{ sliderDelayCurrentValue }}" col="1" row="0" class="slider" />
+                                <Label text="{{ sliderDelayCurrentValue }}" col="2" row="0" class="slidersLabel" />
+                                <Label text="Morse code volume" col="0" row="1" class="slidersLabel" />
+                                <Slider id="morseCodeVolumeSlider" propertyChange="changeSliderValues" minValue="{{ sliderVolumeMinValue }}" maxValue="{{ sliderVolumeMaxValue }}" value="{{ sliderVolumeCurrentValue }}" col="1" row="1" class="slider" />
+                                <Label text="{{ sliderVolumeCurrentValue }}" col="2" row="1"  class="slidersLabel" />
+                                <Label text="Set DOT Color" col="0" row="2"  class="slidersLabel" />
+                                <TextView text="{{ lightCodeColorDot }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="2" colSpan="3" />
+                                <Label text="Set DASH Color" col="0" row="3"  class="slidersLabel" />
+                                <TextView text="{{ lightCodeColorDash }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="3" colSpan="3" />
+                                <Button text="get morisifying location" col="0" row="4" rowSpan="1" colspan="3" class="sliderButton" tap="getMeMyLocation" id="boomerMan" />
+                            </GridLayout>
+                        </StackLayout> 
+                    </TabViewItem.view>
+                </TabViewItem>
+                <TabViewItem title="Alphabet">
+                    <TabViewItem.view>
+                        <StackLayout class="morsifyStack quizGrid">
+                            <Label text="Alphabet to Morse code with sound generator" id="alphabetLetterLabel" />
+                            <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
+                                <ListView.itemTemplate >
+                                    <GridLayout columns="*, *, auto" class="alphabetGrid">
+                                       <Label text="{{ letter }}" col="0" textWrap="true" class="alphabetLetterLabel" />
+                                       <Label text="{{ code }}" col="1" textWrap="true" class="alphabetLetterLabel" />
+                                       <Image src="~/res/play_button.png" col="2" class="alphabetPlayButton" id="playImage" stretch="aspectFit"/>
+                                    </GridLayout>
+                                </ListView.itemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </TabViewItem.view>
+                </TabViewItem>
             </TabView.items>
         </TabView>
     </StackLayout>

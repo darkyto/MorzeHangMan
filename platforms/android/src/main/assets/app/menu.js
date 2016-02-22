@@ -97,7 +97,10 @@ function onLoad(args) {
 		"lightCodeColorDot" : "#F50101",
 		"lightCodeFadeTo" : "#000000",
 		"whiteColor" : "FFFFFF",
-		"decodeAttempts" : 0
+		"decodeAttempts" : 0,
+		"morseRandomWord" : "SOS",
+		"userDecodedMorse": "... --- ...",
+		"userDecodedMorseResult" : "Can you morsify the word!?"
 	});
 
 	generateMorseObservableArray();
@@ -340,6 +343,45 @@ function decodeTextToMorse(text) {
 	return result;
 }
 
+function checkEncodedMorse() {
+
+	var textInput = model.get("morseRandomWord");
+	var expectedMorse = decodeTextToMorse(textInput);
+	expectedMorse = expectedMorse.replace(/(^[\s]+|[\s]+$)/g, '');
+	
+	var userDecodedMorse = model.get("userDecodedMorse");
+	var userDecodedMorseResult = model.get("userDecodedMorseResult");
+	console.log("user: " + userDecodedMorse + "!");
+	console.log("data: " + expectedMorse + "!");
+	if (userDecodedMorse === expectedMorse) {
+		model.userDecodedMorseResult = "Good Job! Morse Decoded!";
+	} else {
+		model.userDecodedMorseResult = "Wrong code! Try again!";
+	}
+}
+
+function fetchRandomMorse() {
+		console.log(' mosrse fetcher clicked!');
+
+    http.getJSON("http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function (r) {
+    	try{
+    		var result = JSON.stringify(r);
+    		var parsed = JSON.parse(result);
+    		model.morseRandomWord = parsed[0]["word"];
+
+    		showToast("Successfully fetched a new word!");
+    	}
+    	catch (e){
+    		showToast("Error: unable to fetch a word!");
+    		console.log(e.message);
+    	}
+	}, function (e) {
+		showToast("Error: unable to fetch a word!");
+    	console.log("encountered an error while fetching the word!");
+    	console.log(e);
+	});
+}
+
 function fetchRandomWordFromApi(){
 	console.log('fetcher clicked!');
 
@@ -453,3 +495,5 @@ exports.onCreateFileTap = onCreateFileTap;
 exports.onSendFileViaMailTap = onSendFileViaMailTap;
 exports.onCreateLightTap = onCreateLightTap;
 exports.getMeMyLocation = getMeMyLocation;
+exports.fetchRandomMorse = fetchRandomMorse;
+exports.checkEncodedMorse = checkEncodedMorse;
