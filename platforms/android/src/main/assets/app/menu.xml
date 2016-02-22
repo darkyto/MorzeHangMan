@@ -6,7 +6,7 @@
             <TabViewItem title="Morsify">
                 <TabViewItem.view>
                     <StackLayout class="morsifyStack">
-                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" >
+                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*, 1*, 1*, 1*" class="quizGrid">
                             <TextView text="{{ textToMorse }}" hint="enter text to morsify" editable="true" class="morsifyTextView" col="0" row="0" colSpan="3" rowSpan="2" />
                             <Button text="ENC" col="3" row="0" rowSpan="2" class="morsifyEncodeButton" tap="onEncodeButtonTap"/>
                             <TextView text="{{ morseToText }}" hint="enter morse to decode" editable="true" class="morsifyTextView" col="0" row="2" colSpan="3" rowSpan="2" />
@@ -21,7 +21,7 @@
             <TabViewItem title="Quiz">
                 <TabViewItem.view>
                     <StackLayout class="morsifyStack">
-                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" >
+                        <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" class="quizGrid">
                             <TextView text = "{{ maskedRandomWordForTextLabel }}" hint="enter text to morsify" editable="false" class="quizTextView" col="0" row="0" colSpan="3" rowSpan="1" id="maskyRiddler"/>
                             <Button text="FETCH" col="3" row="0" rowSpan="1" class="quizButton" tap="fetchRandomWordFromApi" />
                             <TextView text = "{{ userDecodedWordAttempt }}" hint="decoded morse word..." editable="true" class="quizTextView" col="0" row="1" colSpan="3" rowSpan="1" />
@@ -54,7 +54,7 @@
             </TabViewItem>
             <TabViewItem title="Alphabet">
                 <TabViewItem.view>
-                    <StackLayout class="morsifyStack">
+                    <StackLayout class="morsifyStack quizGrid">
                         <Label text="Alphabet to Morse code with sound generator" id="alphabetLetterLabel" />
                         <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
                             <ListView.itemTemplate >

@@ -47,6 +47,12 @@
 	border-color: gray;
 }
 
+.quizGrid {
+	border-width: 1;
+	border-radius: 10;
+	border-color: gray;
+}
+
 .quizButton {
 	margin: 10;
 	border-width: 1;
@@ -94,7 +100,6 @@
 	margin: 10;
 	border-width: 4;
 	border-color: #CCC;
-	padding-top: 20;
 }
 
 .morsifyButton {
