@@ -1,5 +1,12 @@
 ﻿#menuContainer {
-	background-color: white;
+	background-color: #F2F3E4;
+}
+
+#tabNavigation {
+	background-color: #d5cb94;
+	color: #4a4a49;
+	border-width: 1;
+	border-color: #4a4a49;
 }
 
 .menuMainImage {

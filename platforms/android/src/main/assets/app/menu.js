@@ -68,7 +68,7 @@ function onLoad(args) {
 	page = args.object;
 	page.addCssFile("~/styles/menu.css");
 
-	var myTab = page.getViewById('tabNavigation');
+	var myTab = page.getViewById('menuPage');
 
 	myTab.scaleX = 0.1;
     myTab.scaleY = 0.1;
