@@ -36,16 +36,16 @@
             <TabViewItem title="Settings">
                 <TabViewItem.view>
                     <StackLayout class="morsifyStack">
-                        <GridLayout columns="auto, *, auto" rows="auto, auto, auto, auto, *" class="sliderGrid" >
+                        <GridLayout columns="auto, 2*, 1*" rows="auto, auto, auto, auto, auto" class="sliderGrid" >
                             <Label text="Delay between codes" col="0" row="0" class="slidersLabel" />
                             <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderDelayMinValue }}" maxValue="{{ sliderDelayMaxValue }}" value="{{ sliderDelayCurrentValue }}" col="1" row="0" class="slider" />
                             <Label text="{{ sliderDelayCurrentValue }}" col="2" row="0" class="slidersLabel" />
                             <Label text="Morse code volume" col="0" row="1" class="slidersLabel" />
                             <Slider id="morseCodeVolumeSlider" propertyChange="changeSliderValues" minValue="{{ sliderVolumeMinValue }}" maxValue="{{ sliderVolumeMaxValue }}" value="{{ sliderVolumeCurrentValue }}" col="1" row="1" class="slider" />
                             <Label text="{{ sliderVolumeCurrentValue }}" col="2" row="1"  class="slidersLabel" />
-                            <Label text="Set DOT Light code color" col="0" row="2"  class="slidersLabel" />
+                            <Label text="Set DOT Color" col="0" row="2"  class="slidersLabel" />
                             <TextView text="{{ lightCodeColorDot }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="2" colSpan="3" />
-                            <Label text="Set DASH Light code color" col="0" row="3"  class="slidersLabel" />
+                            <Label text="Set DASH Color" col="0" row="3"  class="slidersLabel" />
                             <TextView text="{{ lightCodeColorDash }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="3" colSpan="3" />
                             <Button text="get morisifying location" col="0" row="4" rowSpan="1" colspan="3" class="sliderButton" tap="getMeMyLocation" id="boomerMan" />
                         </GridLayout>
