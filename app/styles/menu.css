@@ -54,11 +54,12 @@
 }
 
 .quizButton {
-	margin: 10;
+	
 	border-width: 1;
 	border-radius: 10;
 	border-color: gray;
 	font-size: 14;
+	height: 60;
 }
 
 .quizTextView {

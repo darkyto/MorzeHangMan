@@ -42,9 +42,9 @@
                                   <StackLayout class="morsifyStack">
                                         <GridLayout columns="*, *, *, *" rows="1*, 1*, 1*, 1*" class="quizGrid">
                                             <TextView text = "{{ morseRandomWord }}" editable="false" class="quizTextView" col="0" row="0" colSpan="3" rowSpan="1" id="maskyRiddler"/>
-                                            <Button text="New Morse Word" col="3" row="0" rowSpan="1" class="quizButton" tap="fetchRandomMorse" />
+                                            <Button text="Random Word" col="3" row="0" rowSpan="1" class="quizButton" tap="fetchRandomMorse" />
                                             <TextView text = "{{ userDecodedMorse }}" editable="true" class="quizTextView" col="0" row="1" colSpan="3" rowSpan="1" />
-                                            <Button text="DECODE" col="3" row="1" rowSpan="1" class="quizButton" tap="checkEncodedMorse" />
+                                            <Button text="Morsify" col="3" row="1" rowSpan="1" class="quizButton" tap="checkEncodedMorse" />
                                             <TextView text="{{ userDecodedMorseResult }}" editable="false" class="quizTextView" col="0" row="4" colSpan="4" rowSpan="1" />
                                         </GridLayout>
                                     </StackLayout>
