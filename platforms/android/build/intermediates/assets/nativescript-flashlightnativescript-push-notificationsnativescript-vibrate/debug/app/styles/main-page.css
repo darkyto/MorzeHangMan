@@ -1,0 +1,25 @@
+.container {
+	background-color: #5F6B61;
+	color:#DCF0F7;
+}
+
+.stackContainer {
+	vertical-align: center;
+}
+
+.splashImage {
+	margin-top: 100;
+  margin-right: 20;
+  margin-left: 20;
+}
+
+.splashLabel {
+    font-size: 36;
+    background-color: #5F6B61;
+    color : #CCC;
+  	margin-top: 20;
+    margin-left: 10;
+    margin-right: 10;
+  	opacity: 0.7;
+    text-align: center;
+}

@@ -59,7 +59,7 @@
                 <TabViewItem title="Settings">
                     <TabViewItem.view>
                         <StackLayout class="morsifyStack">
-                            <GridLayout columns="auto, 2*, 1*" rows="auto, auto, auto, auto, auto" class="sliderGrid" >
+                            <GridLayout columns="auto, 2*, 1*" rows="auto, auto, auto, auto, auto, auto" class="sliderGrid" >
                                 <Label text="Delay between codes" col="0" row="0" class="slidersLabel" />
                                 <Slider id="morseDelaySlider" propertyChange="changeSliderValues" minValue="{{ sliderDelayMinValue }}" maxValue="{{ sliderDelayMaxValue }}" value="{{ sliderDelayCurrentValue }}" col="1" row="0" class="slider" />
                                 <Label text="{{ sliderDelayCurrentValue }}" col="2" row="0" class="slidersLabel" />
@@ -71,6 +71,7 @@
                                 <Label text="Set DASH Color" col="0" row="3"  class="slidersLabel" />
                                 <TextView text="{{ lightCodeColorDash }}" hint="#COLOR" editable="true" class="sliderColorTextView" col="1" row="3" colSpan="3" />
                                 <Button text="get morisifying location" col="0" row="4" rowSpan="1" colspan="3" class="sliderButton" tap="getMeMyLocation" id="boomerMan" />
+                                <Button text="Morse location to Email" col="0" row="5" rowSpan="1" colspan="3" class="sliderButton" tap="onMailMyMorseLocation" id="boomerMan" />
                             </GridLayout>
                         </StackLayout> 
                     </TabViewItem.view>
@@ -81,7 +82,7 @@
                             <Label text="Alphanumerics to Morse code" id="alphabetLetterLabel"  class="alphabetLetterInfo" />
                             <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
                                 <ListView.itemTemplate>
-                                    <GridLayout columns="*, *, auto" class="alphabetGrid"  id="listGridItem" >
+                                    <GridLayout columns="*, *, auto" class="alphabetGrid" >
                                        <Label text="{{ letter }}" col="0" textWrap="true" class="alphabetLetterLabel" />
                                        <Label text="{{ code }}" col="1" textWrap="true" class="alphabetLetterLabel" />
                                        <Image src="~/res/play_button.png" col="2" class="alphabetPlayButton" id="playImage" stretch="aspectFit"/>

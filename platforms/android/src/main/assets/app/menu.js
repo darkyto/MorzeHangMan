@@ -101,7 +101,8 @@ function onLoad(args) {
 		"morseRandomWord" : "SOS",
 		"userDecodedMorse": "... --- ...",
 		"userDecodedMorseResult" : "Can you morsify the word!?",
-		"isItemZoomed" : false
+		"isItemZoomed" : false,
+		"myLocation" : "No location taken"
 	});
 
 	generateMorseObservableArray();
@@ -199,6 +200,43 @@ function onCreateLightTap(args) {
 			timer.setTimeout(setBackOpacity, 800 * (i + 2));
 		}
 	}
+}
+
+function onMailMyMorseLocation() {
+
+	var myLocation = model.myLocation;
+	console.log(myLocation);
+	var receiver = "test@test.com";
+	dialogs.prompt({
+	  title: "My MORSE LOCATION",
+	  message: "Enter receiver email",
+	  okButtonText: "Send Now!",
+	  cancelButtonText: "Cancel",
+	  defaultText: "sample-mail@mail.com",
+	  inputType: dialogs.inputType.text
+	}).then(function (r) {
+	  console.log("Dialog result: " + r.result + ", text: " + r.text);
+	  receiver = r.text;
+	});
+
+	email.available().then(function(avail) {
+      console.log("Email available? " + avail);
+      if (avail) {
+  	    email.compose({
+		    subject: "Morse code mail",
+		    body: myLocation,
+		    to: [receiver]
+		}).then(function(r) {
+			if (r){
+				//do the stuff with the response
+			}
+			dialogs.alert("Mail send").then(function() {
+			    console.log("Dialog closed!");
+			});
+		    console.log("Email composer closed");
+		});
+      }
+  	});
 }
 
 function onSendFileViaMailTap() {
@@ -502,6 +540,8 @@ function getMeMyLocation(){
 	}, function(e){
 		console.log("Error: " + e.message);
 	});
+
+	model.myLocation = location;
 }
 
 exports.onLoad = onLoad;
@@ -517,3 +557,4 @@ exports.onCreateLightTap = onCreateLightTap;
 exports.getMeMyLocation = getMeMyLocation;
 exports.fetchRandomMorse = fetchRandomMorse;
 exports.checkEncodedMorse = checkEncodedMorse;
+exports.onMailMyMorseLocation = onMailMyMorseLocation;

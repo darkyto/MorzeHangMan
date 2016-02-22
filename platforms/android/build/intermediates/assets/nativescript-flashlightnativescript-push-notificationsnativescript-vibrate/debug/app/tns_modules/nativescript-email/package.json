@@ -1,0 +1,57 @@
+{
+  "name": "nativescript-email",
+  "version": "1.1.1",
+  "description": "Email plugin for your NativeScript app",
+  "main": "email.js",
+  "nativescript": {
+    "platforms": {
+      "ios": "1.1.0",
+      "android": "1.1.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddyverbruggen/nativescript-email.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "Mail",
+    "Email",
+    "Draft",
+    "Compose",
+    "MailComposer"
+  ],
+  "author": {
+    "name": "Eddy Verbruggen",
+    "email": "eddyverbruggen@gmail.com",
+    "url": "https://github.com/EddyVerbruggen"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eddyverbruggen/nativescript-email/issues"
+  },
+  "homepage": "https://github.com/eddyverbruggen/nativescript-email",
+  "gitHead": "baadb4eae3fe4ff79a33f6307e9b8871a25c5f42",
+  "_id": "nativescript-email@1.1.1",
+  "scripts": {},
+  "_shasum": "91ccab236cfdbb463aaa24b991312c73270a8e9a",
+  "_from": "nativescript-email@latest",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "eddyverbruggen",
+    "email": "eddyverbruggen@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "eddyverbruggen",
+      "email": "eddyverbruggen@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "91ccab236cfdbb463aaa24b991312c73270a8e9a",
+    "tarball": "http://registry.npmjs.org/nativescript-email/-/nativescript-email-1.1.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/nativescript-email/-/nativescript-email-1.1.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

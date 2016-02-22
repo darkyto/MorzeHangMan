@@ -2,6 +2,20 @@
 <items version="2" >
 
     <item
+        jar="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\libs\widgets.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ff3c62a8eb22f0111b882125ad1579dc6273fd90">
+        <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-vibrate\debug\widgets-c0d7007c58bbbc935826d7a20a50764c7693c49d.jar" />
+    </item>
+    <item
+        jar="D:\Personal\TELERIK\NativeScript\MorzeHangMan\node_modules\nativescript-push-notifications\platforms\android\libs\pushplugin.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="675d57ba588768abdd43fa1f48246cc28a0e3342">
+        <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-push-notificationsnativescript-vibrate\debug\pushplugin-ce11b837e93c7d4b8fd070163f8d4cc99aa6cbfd.jar" />
+    </item>
+    <item
         jar="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\libs\nativescript.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -9,11 +23,11 @@
         <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-vibrate\debug\nativescript-721a668a1fc4e815dca74c9f0f14109d45178449.jar" />
     </item>
     <item
-        jar="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\libs\widgets.jar"
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="ff3c62a8eb22f0111b882125ad1579dc6273fd90">
-        <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-vibrate\debug\widgets-c0d7007c58bbbc935826d7a20a50764c7693c49d.jar" />
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="D:\Personal\TELERIK\NativeScript\MorzeHangMan\platforms\android\build\intermediates\pre-dexed\nativescript-flashlightnativescript-push-notificationsnativescript-vibrate\debug\support-annotations-23.0.0-753c954767ec5669f421f372d3c74e5692c3803b.jar" />
     </item>
     <item
         jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
