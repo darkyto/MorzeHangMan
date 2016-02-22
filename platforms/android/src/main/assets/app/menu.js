@@ -100,7 +100,8 @@ function onLoad(args) {
 		"decodeAttempts" : 0,
 		"morseRandomWord" : "SOS",
 		"userDecodedMorse": "... --- ...",
-		"userDecodedMorseResult" : "Can you morsify the word!?"
+		"userDecodedMorseResult" : "Can you morsify the word!?",
+		"isItemZoomed" : false
 	});
 
 	generateMorseObservableArray();
@@ -272,6 +273,23 @@ function onListViewTap(args) {
 	var currentItem = _morseCodeArray.getItem(itemIndex);
 	var codeString = currentItem['code'];
 	console.log(codeString);
+
+	var currentViewItem = args.view;
+	currentViewItem.on(gestures.GestureTypes.pinch, function () {
+    	if (!model.isItemZoomed) {
+    		currentViewItem.animate({
+		    	scale: { x: 1, y: 1.6},
+		    	backgroundColor : new colorModule.Color("#d5cb94")
+		    });	
+		    model.isItemZoomed = true;
+    	} else {
+    		currentViewItem.animate({
+		    	scale: { x: 1, y: 1},
+		    	backgroundColor : new colorModule.Color("#F2F3E4")
+		    });	
+		    model.isItemZoomed = false;
+    	}
+	});
 
 	for (var i = 0, len = codeString.length; i < len; i++) {
 		if (codeString[i] === "-") {

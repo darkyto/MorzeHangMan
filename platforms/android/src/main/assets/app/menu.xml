@@ -80,8 +80,8 @@
                         <StackLayout class="morsifyStack quizGrid">
                             <Label text="Alphanumerics to Morse code" id="alphabetLetterLabel"  class="alphabetLetterInfo" />
                             <ListView  id="morseAlphabetListView" itemTap="onListViewTap" items="{{ myMorseItems }}">     
-                                <ListView.itemTemplate >
-                                    <GridLayout columns="*, *, auto" class="alphabetGrid">
+                                <ListView.itemTemplate>
+                                    <GridLayout columns="*, *, auto" class="alphabetGrid"  id="listGridItem" >
                                        <Label text="{{ letter }}" col="0" textWrap="true" class="alphabetLetterLabel" />
                                        <Label text="{{ code }}" col="1" textWrap="true" class="alphabetLetterLabel" />
                                        <Image src="~/res/play_button.png" col="2" class="alphabetPlayButton" id="playImage" stretch="aspectFit"/>
